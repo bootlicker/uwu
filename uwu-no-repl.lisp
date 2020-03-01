@@ -55,8 +55,11 @@
 ;;; number of state mutated works best for Atari 2600, for very good reason.
 
 
-;;; The main game loop
+;;; <><><><><><><><><><><>
+;;;       MAIN LOOP
+;;; <><><><><><><><><><><>
 
+;;; The main game loop!
 ;;; Here it is below:
 
 (defun main-loop ()
@@ -68,7 +71,19 @@
   )
 
 ;;; I imagine this little loop will whizz along very quickly, so that pressing
-;;; 
+;;; A key will trigger game events seamlessly. All animation will occur by causing
+;;; the *screen-contents* variable to be updated a lot slower than the very fast
+;;; pace at which the computer is executing all of the code for the game logic.
+
+;;; As you can see, we first read from the keyboard, which sets the *keypress*
+;;; variable, which is then an argument for the main game logic function.
+;;; This, function,' game-logic' will also be composed of modules, much like the
+;;; way the main loop has three.
+
+;;; Then, out of game-logic is set *screen-contents*, which is an argument for
+;;; 'draw-screen', which will draw whatever is inside that variable.
+
+;;; Then the loop starts all over again! 
 
 
 (defun read-keys ()
