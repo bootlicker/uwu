@@ -1,6 +1,20 @@
 (setq *happiness* 100)
 (setq *hunger* 0)
 (setq *entertainment* 100)
+(defparameter *keypress*)
+(defparameter *screen-contents*)
+
+(defun main-loop ()
+  (loop
+     (read-keys)
+     (game-logic *keypress*)
+     (draw-screen *screen-contents*)
+     )
+  )
+
+(defun read-keys ()
+  
+
 
 (defun increase-hunger ()
   (setq *hunger* (+ *hunger* 10))
