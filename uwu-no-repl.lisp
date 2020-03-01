@@ -13,7 +13,10 @@
   )
 
 (defun read-keys ()
-  
+  (setq keyboard-output (terminal-keypress:read-event))
+  (setq *keypress* (terminal-keypress::keypress-character keyboard-output))
+  )
+
 
 
 (defun increase-hunger ()
