@@ -110,7 +110,9 @@
 ;;; We're going to pass this escaped symbol to the game logic function, in order to tell
 ;;; it that we have selected some key, so we can navigate menus or interact with the pet!
 
-;;; I am worried, however. I think that this function will not
+;;; I am worried, however. I think that this function will not continue execution if no
+;;; key press is made. So below is a whole bunch of testing of functions to see if I
+;;; can create one which will continue execution without a newline character.
 
 (loop while (not terminal-keypress:read-event)
    (setq keypress (terminal-keypress:read-event))
