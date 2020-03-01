@@ -90,10 +90,9 @@
 ;;; <><><><><><><><><><><><><>
 
 (defun read-keys ()
-  (setq keyboard-output nil)
-  (cond ((listen) (setq keyboard-output (terminal-keypress:read-event)))
-	(t (setq keyboard-output nil)))
-  (setq *keypress* (terminal-keypress::keypress-character keyboard-output))
+
+;;; WRITE THE FUNCTION HERE
+  
   )
 
 ;;; This function reads the user input from they keyboard, and stores it in a global
@@ -170,11 +169,32 @@
   )
 
 (defun keypress-test45 ()
-(loop when (eq (terminal-keypress:read-event) (not nil)) do
+(loop
    (print 'no-keypress)
-     )
-(print 'keypress)
+   (when (eq (terminal-keypress:read-event) (not nil) ) (print 'keypress) ))
+
 )
+
+(defun keypress8 ()
+  (read-char-no-hang)
+  (read-char-no-hang)
+  (read-char-no-hang)
+  (read-char-no-hang)
+  (princ 'no-key-press)
+  )
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 (defun scan-keys ()
   (schedule-timer (make-timer (lambda ()
