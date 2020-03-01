@@ -1,5 +1,6 @@
 LOOP
 	BEGIN
+	
 		* READ KEYS
 		* PRINT SCREEN
 		* GAME LOGIC
