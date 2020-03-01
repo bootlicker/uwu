@@ -77,7 +77,7 @@
 
 ;;; As you can see, we first read from the keyboard, which sets the *keypress*
 ;;; variable, which is then an argument for the main game logic function.
-;;; This, function,' game-logic' will also be composed of modules, much like the
+;;; This, function, 'game-logic' will also be composed of modules, much like the
 ;;; way the main loop has three.
 
 ;;; Then, out of game-logic is set *screen-contents*, which is an argument for
@@ -85,13 +85,99 @@
 
 ;;; Then the loop starts all over again! 
 
+;;; <><><><><><><><><><><><><>
+;;;    READING USER INPUT
+;;; <><><><><><><><><><><><><>
 
 (defun read-keys ()
-  (setq keyboard-output (terminal-keypress:read-event))
+  (setq keyboard-output nil)
+  (cond ((listen) (setq keyboard-output (terminal-keypress:read-event)))
+	(t (setq keyboard-output nil)))
   (setq *keypress* (terminal-keypress::keypress-character keyboard-output))
   )
 
+;;; This function reads the user input from they keyboard, and stores it in a global
+;;; variable, for the next function in the main game loop to take and then set the game
+;;; state properly.
 
+;;; The first line of this function stores the output of the function call 'read-event'
+;;; in the package/library that we load in order to make this game work.
+;;; The output that we store is an /object structure/ that is defined inside the package.
+
+;;; The second line extracts a single /attribute/ from this object, the symbol for the
+;;; character that you have presed - say, #\t if you press 't'.
+
+;;; We're going to pass this escaped symbol to the game logic function, in order to tell
+;;; it that we have selected some key, so we can navigate menus or interact with the pet!
+
+;;; I am worried, however. I think that this function will not
+
+(loop while (not terminal-keypress:read-event)
+   (setq keypress (terminal-keypress:read-event))
+   (princ keypress)
+(when (eq nil (terminal-keypress::keypress-character keypress) (return 'key-not-pressed))
+  ))
+
+(defun keypress-test ()
+(setq keypress nil)
+(loop
+   (setq keypress (terminal-keypress:read-event))
+   ))
+)
+
+(let ((keypress (terminal-keypress:read-event)))
+(loop))
+
+(defun keypress-test2 ()
+(loop 
+   (sleep 0.2)
+   (print 'no-keypress)
+   (when (eq (read-char-no-hang) (not nil)) (return 'keypress))
+   )
+)
+   
+(defun keypress-test3 ()
+(loop until (eq (read-char-no-hang *terminal-io*) (not nil)) do
+   (print 'no-keypress)
+     )
+(print 'keypress)
+)
+
+(defun keypress-test4 ()
+(loop until (eq (terminal-keypress:read-event) (not nil)) do
+   (print 'no-keypress)
+     )
+(print 'keypress)
+)
+
+(defun keypress-test5 ()
+(loop while (eq (terminal-keypress:read-event) nil) do
+   (print 'no-keypress)
+     )
+(print 'keypress)
+)
+
+(defun keypress-test6 ()
+(when (eq (terminal-keypress:read-event) nil) (print 'no-keypress)
+      ))
+
+(defun keypress-test7 ()
+  (loop
+     (when (eq (read-char-no-hang) (not nil)) (print 'keypress))
+     )
+  )
+
+(defun keypress-test45 ()
+(loop when (eq (terminal-keypress:read-event) (not nil)) do
+   (print 'no-keypress)
+     )
+(print 'keypress)
+)
+
+(defun scan-keys ()
+  (schedule-timer (make-timer (lambda ()
+				()))
+5))
 
 (defun increase-hunger ()
   (setq *hunger* (+ *hunger* 10))
@@ -103,7 +189,7 @@
   (uwu-eat-animation)
   )
 
-
+(read-char-no-hang (stream *terminal-io*))
 
 
 (defun uwu-happy-animation ()
