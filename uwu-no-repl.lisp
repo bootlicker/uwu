@@ -1,5 +1,3 @@
-(require 'terminal-keypress)
-
 ;;; ******************************************************************************
 ;;; * DEFINITION OF THE VARIABLES                                                *
 ;;; ******************************************************************************
@@ -186,14 +184,14 @@
 
 
 
-
-
-
-
-
-
-
-
+(defun y-or-no ()
+  (with-screen (scr :unbuffered :input-blocking t)
+    (clear scr)
+    (princ "Do you want to continue? [Y/N]" scr)
+    (refresh scr)
+    (event-case (scr event)
+      ((#\Y #\y) (return-from event-case t))
+      ((#\N #\n) (return-from event-case nil)))))
 
 
 (defun scan-keys ()
@@ -262,3 +260,36 @@
      (when (< loopeat 0) (return 'uwu))
      )
   )
+
+
+(defpackage #:uwu
+  (:use #:cl)
+  (:export #:main))
+
+(in-package #:uwu)
+
+
+(defun y-or-no ()
+  (with-screen (scr :input-buffering nil :input-blocking nil)
+    (clear scr)
+    (princ "Do you want to continue? [Y/N]" scr)
+    (refresh scr)
+    (event-case (scr event)
+      ((#\Y #\y) (return-from event-case t))
+      ((#\N #\n) (return-from event-case nil)))))
+
+(defun animate (&optional (fps 10))
+    "Show the animation of the moving cart"
+    (let ((running T) (current-x 0))
+        (with-screen (scr :input-blocking (round (/ 1000 fps)) :enable-colors T
+                         :input-echoing NIL :cursor-visibility NIL
+                         :input-reading :unbuffered)
+            (clear scr)
+            (event-case (scr event)
+                (#\space (setf running (not running)))
+                ((NIL) (when running
+                           (incf current-x)
+                           (when (= current-x (+ 46 (round (/ (.width scr) 2))))
+                               (setf current-x 0))
+                           (draw-cart scr current-x)))
+                (otherwise (return-from event-case))))))
