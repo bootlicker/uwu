@@ -293,3 +293,4 @@
                                (setf current-x 0))
                            (draw-cart scr current-x)))
                 (otherwise (return-from event-case))))))
+
