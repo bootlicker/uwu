@@ -1,3 +1,7 @@
+(defpackage #:uwu
+  (:use #:cl)
+  (:export #:main))
+
 ;;; ******************************************************************************
 ;;; * DEFINITION OF THE VARIABLES                                                *
 ;;; ******************************************************************************
@@ -88,28 +92,44 @@
 ;;; <><><><><><><><><><><><><>
 
 (defun read-keys ()
-
-(defun y-or-no ()
-  (with-screen (scr :input-buffering nil :input-blocking nil)
+ (with-screen (scr :input-buffering nil :input-blocking (round 100))
     (clear scr)
-    (princ "Do you want to continue? [Y/N]" scr)
-    (refresh scr)
     (event-case (scr event)
-      ((#\Y #\y) (return-from event-case t))
-      ((#\N #\n) (return-from event-case nil)))))
 
-;;; WRITE THE FUNCTION HERE
+      ((#\F #\f)
+      
+       (setf *keypress* 'feed)
+       (return-from event-case 'feed))
+
+      ((#\T #\t)
+          (setf *keypress* 'toy)
+       (return-from event-case 'toy))
+      
+      ((nil) (return-from event-case 'blerp)))))
+
+#|
+
+This function reads the user input from they keyboard, and stores it in a global
+variable, for the next function in the main game loop to take and then set the game
+state properly.
+
+The first line of this function stores the output of the function call 'read-event'
+in the package/library that we load in order to make this game work.
+The output that we store is an /object structure/ that is defined inside the package.
+
+The second line extracts a single /attribute/ from this object, the symbol for the
+character that you have presed - say, #\t if you press 't'.
+
+We're going to pass this escaped symbol to the game logic function, in order to tell
+it that we have selected some key, so we can navigate menus or interact with the pet!
+
+I am worried, however. I think that this function will not continue execution if no
+key press is made. So below is a whole bunch of testing of functions to see if I
+can create one which will continue execution without a newline character.
+
+|#
   
-)
-
-(defpackage #:uwu
-  (:use #:cl)
-  (:export #:main))
-
-(in-package #:uwu)
-
-
-
+#|
 
 (defun animate (&optional (fps 10))
     "Show the animation of the moving cart"
@@ -127,39 +147,12 @@
                            (draw-cart scr current-x)))
                 (otherwise (return-from event-case))))))
 
-;;; This function reads the user input from they keyboard, and stores it in a global
-;;; variable, for the next function in the main game loop to take and then set the game
-;;; state properly.
-
-;;; The first line of this function stores the output of the function call 'read-event'
-;;; in the package/library that we load in order to make this game work.
-;;; The output that we store is an /object structure/ that is defined inside the package.
-
-;;; The second line extracts a single /attribute/ from this object, the symbol for the
-;;; character that you have presed - say, #\t if you press 't'.
-
-;;; We're going to pass this escaped symbol to the game logic function, in order to tell
-;;; it that we have selected some key, so we can navigate menus or interact with the pet!
-
-;;; I am worried, however. I think that this function will not continue execution if no
-;;; key press is made. So below is a whole bunch of testing of functions to see if I
-;;; can create one which will continue execution without a newline character.
+|#
 
 
-(defun y-or-no ()
-  (with-screen (scr :unbuffered :input-blocking t)
-    (clear scr)
-    (princ "Do you want to continue? [Y/N]" scr)
-    (refresh scr)
-    (event-case (scr event)
-      ((#\Y #\y) (return-from event-case t))
-      ((#\N #\n) (return-from event-case nil)))))
+(defun game-logic (key-input)
+  )
 
-
-(defun scan-keys ()
-  (schedule-timer (make-timer (lambda ()
-				()))
-5))
 
 (defun increase-hunger ()
   (setq *hunger* (+ *hunger* 10))
