@@ -1,6 +1,6 @@
-(defpackage #:uwu
-  (:use #:cl)
-  (:export #:main))
+;; (defpackage #:uwu
+;;  (:use #:cl)
+;;  (:export #:main))
 
 ;;; ******************************************************************************
 ;;; * DEFINITION OF THE VARIABLES                                                *
@@ -40,8 +40,8 @@
 ;;; *screen-contents*, however, passes the output that the game logic prepares to a function
 ;;; which then draws the contents of that variable to the screen :-) 
 
-(defparameter *keypress*)
-(defparameter *screen-contents*)
+(defparameter *keypress* nil)
+(defparameter *tick* nil)
 
 ;;; ******************************************************************************
 ;;; *                             GAME LOGICK                                    *
@@ -64,13 +64,33 @@
 ;;; The main game loop!
 ;;; Here it is below:
 
+
+
+
 (defun main-loop ()
+
+  (uwu-init)
+   
   (loop
      (read-keys)
      (game-logic *keypress*)
-     (draw-screen *screen-contents*)
-     )
-  )
+     (draw-screen *hunger* *entertainment*)))
+
+#|
+
+<><><><><><><><><><><><>
+  INITIALISE THE GAME
+<><><><><><><><><><><><>
+
+|#
+
+(defun uwu-init ()
+
+  ;; Initialise the hunger variable  
+
+  (schedule-timer (make-timer (lambda ()
+				(setf *tick* t)))
+		  5 :repeat-interval 5))
 
 ;;; I imagine this little loop will whizz along very quickly, so that pressing
 ;;; A key will trigger game events seamlessly. All animation will occur by causing
@@ -149,14 +169,20 @@ can create one which will continue execution without a newline character.
 
 |#
 
+#|
+<><><><><><><>
+  GAME LOGIC
+<><><><><><><>
+|#
 
 (defun game-logic (key-input)
-  )
+  (cond (eq key-input 'feed) (feed)
+	(eq key-input 'toy) (setf *enterainment* (+ *entertainment* 10)))
+  (cond (eq tick t) ((increase-hunger))))
 
 
 (defun increase-hunger ()
   (setq *hunger* (+ *hunger* 10))
-  (print *hunger*)
   )
 
 (defun feed ()
@@ -164,8 +190,17 @@ can create one which will continue execution without a newline character.
   (uwu-eat-animation)
   )
 
-(read-char-no-hang (stream *terminal-io*))
+#|
+<><><><><><><><><><><>
+  DRAWING THE SCREEN
+<><><><><><><><><><><>
+|#
 
+(defun draw-screen (hunger entertainment)
+  (princ *hunger*)
+  (princ *entertainment*))
+
+#|
 
 (defun uwu-happy-animation ()
   (setq loopcounter 10)
@@ -217,5 +252,5 @@ can create one which will continue execution without a newline character.
   )
 
 
-
+|#
 
