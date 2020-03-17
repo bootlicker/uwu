@@ -89,9 +89,43 @@
 
 (defun read-keys ()
 
+(defun y-or-no ()
+  (with-screen (scr :input-buffering nil :input-blocking nil)
+    (clear scr)
+    (princ "Do you want to continue? [Y/N]" scr)
+    (refresh scr)
+    (event-case (scr event)
+      ((#\Y #\y) (return-from event-case t))
+      ((#\N #\n) (return-from event-case nil)))))
+
 ;;; WRITE THE FUNCTION HERE
   
-  )
+)
+
+(defpackage #:uwu
+  (:use #:cl)
+  (:export #:main))
+
+(in-package #:uwu)
+
+
+
+
+(defun animate (&optional (fps 10))
+    "Show the animation of the moving cart"
+    (let ((running T) (current-x 0))
+        (with-screen (scr :input-blocking (round (/ 1000 fps)) :enable-colors T
+                         :input-echoing NIL :cursor-visibility NIL
+                         :input-reading :unbuffered)
+            (clear scr)
+            (event-case (scr event)
+                (#\space (setf running (not running)))
+                ((NIL) (when running
+                           (incf current-x)
+                           (when (= current-x (+ 46 (round (/ (.width scr) 2))))
+                               (setf current-x 0))
+                           (draw-cart scr current-x)))
+                (otherwise (return-from event-case))))))
 
 ;;; This function reads the user input from they keyboard, and stores it in a global
 ;;; variable, for the next function in the main game loop to take and then set the game
@@ -110,78 +144,6 @@
 ;;; I am worried, however. I think that this function will not continue execution if no
 ;;; key press is made. So below is a whole bunch of testing of functions to see if I
 ;;; can create one which will continue execution without a newline character.
-
-(loop while (not terminal-keypress:read-event)
-   (setq keypress (terminal-keypress:read-event))
-   (princ keypress)
-(when (eq nil (terminal-keypress::keypress-character keypress) (return 'key-not-pressed))
-  ))
-
-(defun keypress-test ()
-(setq keypress nil)
-(loop
-   (setq keypress (terminal-keypress:read-event))
-   ))
-)
-
-(let ((keypress (terminal-keypress:read-event)))
-(loop))
-
-(defun keypress-test2 ()
-(loop 
-   (sleep 0.2)
-   (print 'no-keypress)
-   (when (eq (read-char-no-hang) (not nil)) (return 'keypress))
-   )
-)
-   
-(defun keypress-test3 ()
-(loop until (eq (read-char-no-hang *terminal-io*) (not nil)) do
-   (print 'no-keypress)
-     )
-(print 'keypress)
-)
-
-(defun keypress-test4 ()
-(loop until (eq (terminal-keypress:read-event) (not nil)) do
-   (print 'no-keypress)
-     )
-(print 'keypress)
-)
-
-(defun keypress-test5 ()
-(loop while (eq (terminal-keypress:read-event) nil) do
-   (print 'no-keypress)
-     )
-(print 'keypress)
-)
-
-(defun keypress-test6 ()
-(when (eq (terminal-keypress:read-event) nil) (print 'no-keypress)
-      ))
-
-(defun keypress-test7 ()
-  (loop
-     (when (eq (read-char-no-hang) (not nil)) (print 'keypress))
-     )
-  )
-
-(defun keypress-test45 ()
-(loop
-   (print 'no-keypress)
-   (when (eq (terminal-keypress:read-event) (not nil) ) (print 'keypress) ))
-
-)
-
-(defun keypress8 ()
-  (read-char-no-hang)
-  (read-char-no-hang)
-  (read-char-no-hang)
-  (read-char-no-hang)
-  (princ 'no-key-press)
-  )
-
-
 
 
 (defun y-or-no ()
@@ -262,35 +224,5 @@
   )
 
 
-(defpackage #:uwu
-  (:use #:cl)
-  (:export #:main))
 
-(in-package #:uwu)
-
-
-(defun y-or-no ()
-  (with-screen (scr :input-buffering nil :input-blocking nil)
-    (clear scr)
-    (princ "Do you want to continue? [Y/N]" scr)
-    (refresh scr)
-    (event-case (scr event)
-      ((#\Y #\y) (return-from event-case t))
-      ((#\N #\n) (return-from event-case nil)))))
-
-(defun animate (&optional (fps 10))
-    "Show the animation of the moving cart"
-    (let ((running T) (current-x 0))
-        (with-screen (scr :input-blocking (round (/ 1000 fps)) :enable-colors T
-                         :input-echoing NIL :cursor-visibility NIL
-                         :input-reading :unbuffered)
-            (clear scr)
-            (event-case (scr event)
-                (#\space (setf running (not running)))
-                ((NIL) (when running
-                           (incf current-x)
-                           (when (= current-x (+ 46 (round (/ (.width scr) 2))))
-                               (setf current-x 0))
-                           (draw-cart scr current-x)))
-                (otherwise (return-from event-case))))))
 
