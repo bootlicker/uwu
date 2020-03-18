@@ -43,7 +43,6 @@
 ;;; which then draws the contents of that variable to the screen :-) 
 
 (defparameter *keypress* nil)
-(defparameter *tick* nil)
 
 ;;; ******************************************************************************
 ;;; *                             GAME LOGICK                                    *
@@ -92,9 +91,9 @@
 
   ;; Initialise the hunger variable  
 
-;;;  (schedule-timer (make-timer (lambda ()
-;;;				(setf *tick* t)))
-;;;		  5 :repeat-interval 5)
+  (schedule-timer (make-timer (lambda ()
+				(increase-hunger)))
+		  5 :repeat-interval 5)
   
   )
 
@@ -192,15 +191,14 @@ can create one which will continue execution without a newline character.
 (defun game-logic (key-input)
   (cond ((equal 'feed key-input) (feed))
 	((equal 'toy key-input) (setf *enterainment* (+ *entertainment* 10)))
-;;;  (cond (eq tick t) ((increase-hunger))))
-))
+		))
 
 (defun increase-hunger ()
   (setq *hunger* (+ *hunger* 10))
   )
 
 (defun feed ()
-  (setf *hunger* (+ *hunger* 1))
+  (setf *hunger* 0)
   )
 
 #|
