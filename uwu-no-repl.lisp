@@ -138,6 +138,10 @@
        (setf *keypress* nil)
        (return-from croatoan:event-case))
 
+      (otherwise
+       (setf *keypress* nil)
+       (return-from croatoan:event-case))
+
       )))
 
 #|
