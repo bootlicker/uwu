@@ -1,3 +1,5 @@
+(require :croatoan)
+
 ;; (defpackage #:uwu
 ;;  (:use #:cl)
 ;;  (:export #:main))
@@ -18,20 +20,20 @@
 ;;; It counts up or down, but when it reaches zero, the pet is fully upset, and at maximum
 ;;; displeasure, and is the opposite of happy with you.
 
-(setq *happiness* 100)
+(setf *happiness* 100)
+(setf *hunger* 0)
+(setf *entertainment* 100)
 
 ;;; This variable is the amount of hunger that the pet is experiencing.
 ;;; When the value reaches 100, the pet is absolutely famished. When it reaches this value,
 ;;; the happiness of your pet starts to decrease.
 
-(setq *hunger* 0)
+
 
 ;;; This is the variable that increases when you play with your pet.
 ;;; When you do interesting things with your pet, it increases this value, and when it
 ;;; reaches 100, it's fully tweakin' out happy, man!! This will positively affect
 ;;; your pet's happiness! The happiness variable will start to count upwards!
-
-(setq *entertainment* 100)
 
 ;;; These two variables pass values into different parts of the machinery of the game's logic.
 ;;; *keypress* passes the value of the key you press, that gets picked up by the library
@@ -88,9 +90,11 @@
 
   ;; Initialise the hunger variable  
 
-  (schedule-timer (make-timer (lambda ()
-				(setf *tick* t)))
-		  5 :repeat-interval 5))
+;;;  (schedule-timer (make-timer (lambda ()
+;;;				(setf *tick* t)))
+;;;		  5 :repeat-interval 5)
+  
+  )
 
 ;;; I imagine this little loop will whizz along very quickly, so that pressing
 ;;; A key will trigger game events seamlessly. All animation will occur by causing
@@ -112,20 +116,26 @@
 ;;; <><><><><><><><><><><><><>
 
 (defun read-keys ()
- (with-screen (scr :input-buffering nil :input-blocking (round 100))
-    (clear scr)
-    (event-case (scr event)
+  (croatoan:with-screen (scr :input-echoing nil
+			     :input-buffering nil
+			     :input-blocking 90
+			     :cursor-visible nil
+			     :bind-debugger-hook nil
+			     )
+    (croatoan:clear scr)
+    (croatoan:event-case (scr event)
 
-      ((#\F #\f)
+      (#\f
       
        (setf *keypress* 'feed)
-       (return-from event-case 'feed))
+       (return-from croatoan:event-case))
 
-      ((#\T #\t)
+      (#\t
+       
           (setf *keypress* 'toy)
-       (return-from event-case 'toy))
+       (return-from croatoan:event-case))
       
-      ((nil) (return-from event-case 'blerp)))))
+      ((nil) (return-from croatoan:event-case)))))
 
 #|
 
@@ -176,18 +186,17 @@ can create one which will continue execution without a newline character.
 |#
 
 (defun game-logic (key-input)
-  (cond (eq key-input 'feed) (feed)
-	(eq key-input 'toy) (setf *enterainment* (+ *entertainment* 10)))
-  (cond (eq tick t) ((increase-hunger))))
-
+  (cond ((equal 'feed key-input) (feed))
+	((equal 'toy key-input) (setf *enterainment* (+ *entertainment* 10)))
+;;;  (cond (eq tick t) ((increase-hunger))))
+))
 
 (defun increase-hunger ()
   (setq *hunger* (+ *hunger* 10))
   )
 
 (defun feed ()
-  (setq *hunger* 0)
-  (uwu-eat-animation)
+  (setq *hunger* (+ *hunger* 1))
   )
 
 #|
