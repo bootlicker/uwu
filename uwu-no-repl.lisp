@@ -76,7 +76,9 @@
   (loop
      (read-keys)
      (game-logic *keypress*)
-     (draw-screen *hunger* *entertainment*)))
+     (draw-screen *hunger* *entertainment*)
+
+     ))
 
 #|
 
@@ -118,7 +120,7 @@
 (defun read-keys ()
   (croatoan:with-screen (scr :input-echoing nil
 			     :input-buffering nil
-			     :input-blocking 90
+			     :input-blocking 100
 			     :cursor-visible nil
 			     :bind-debugger-hook nil
 			     )
@@ -126,16 +128,18 @@
     (croatoan:event-case (scr event)
 
       (#\f
-      
-       (setf *keypress* 'feed)
+       (setf *keypress* 'feed)      
        (return-from croatoan:event-case))
 
       (#\t
-       
-          (setf *keypress* 'toy)
+       (setf *keypress* 'toy)
        (return-from croatoan:event-case))
       
-      ((nil) (return-from croatoan:event-case)))))
+      ((nil)
+       (setf *keypress* nil)
+       (return-from croatoan:event-case))
+
+      )))
 
 #|
 
@@ -196,7 +200,7 @@ can create one which will continue execution without a newline character.
   )
 
 (defun feed ()
-  (setq *hunger* (+ *hunger* 1))
+  (setf *hunger* (+ *hunger* 1))
   )
 
 #|
