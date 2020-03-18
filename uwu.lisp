@@ -44,6 +44,26 @@
 
 (defparameter *keypress* nil)
 
+
+#|
+
+************
+* GRAPHICS *
+************
+
+|#
+
+(setf happy-pet
+      (list
+       "(u w u )"
+       "( u w u)"
+       " (> u w u)>"
+       " "
+
+       ))
+
+
+
 ;;; ******************************************************************************
 ;;; *                             GAME LOGICK                                    *
 ;;; ******************************************************************************
@@ -72,8 +92,6 @@
   (loop
      (read-keys)
      (game-logic *keypress*)
-;;;     (draw-screen *hunger* *entertainment*)
-
      ))
 
 #|
@@ -90,7 +108,7 @@
 
   (schedule-timer (make-timer (lambda () (increase-hunger)))
 		  5 :repeat-interval 5)
-  (schedule-timer (make-timer (lambda () (print *hunger*)))
+  (schedule-timer (make-timer (lambda () (draw-screen *hunger* *entertainment*)))
 		  1 :repeat-interval 1))
 
 
@@ -191,7 +209,28 @@ can create one which will continue execution without a newline character.
 
 (defun draw-screen (hunger entertainment)
 
-    
+  (setf frame-counter 0)
+
+#|
+
+(fifth a)
+(format nil "The value is: ~a" "foo")
+(list "a" "b")
+(print (list "a" "ab"))
+(format t (car (list "a" "ab")))
+
+CL-USER 5 > (defun foo ()
+              (format t "hello")
+              (format t "world")
+              (values))
+FOO
+
+CL-USER 6 > (foo)
+helloworld   ; <- printed by two FORMAT statements
+             ; <- no return value -> nothing printed by the REPL
+
+|#
+  
 
   )
 
