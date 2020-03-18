@@ -114,7 +114,7 @@
 (defun read-keys ()
   (croatoan:with-screen (scr :input-echoing nil
 			     :input-buffering nil
-			     :input-blocking 100
+			     :input-blocking nil
 			     :cursor-visible nil
 			     :bind-debugger-hook nil
 			     )
