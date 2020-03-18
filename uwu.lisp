@@ -72,7 +72,7 @@
   (loop
      (read-keys)
      (game-logic *keypress*)
-     (draw-screen *hunger* *entertainment*)
+;;;     (draw-screen *hunger* *entertainment*)
 
      ))
 
@@ -88,9 +88,11 @@
 
   ;; Initialise the hunger variable  
 
-  (schedule-timer (make-timer (lambda () (increase-hunger)
-				      (print *hunger*)))
-			      5 :repeat-interval 5))
+  (schedule-timer (make-timer (lambda () (increase-hunger)))
+		  5 :repeat-interval 5)
+  (schedule-timer (make-timer (lambda () (print *hunger*)))
+		  1 :repeat-interval 1))
+
 
 ;;; I imagine this little loop will whizz along very quickly, so that pressing
 ;;; A key will trigger game events seamlessly. All animation will occur by causing
@@ -188,14 +190,10 @@ can create one which will continue execution without a newline character.
 |#
 
 (defun draw-screen (hunger entertainment)
-  (croatoan:with-screen (scr :input-echoing nil
-			     :input-buffering nil
-			     :input-blocking nil
-			     :cursor-visible nil
-			     :bind-debugger-hook nil
-			     )
-    (print *hunger* scr)
-    ))
+
+    
+
+  )
 
 #|
 
