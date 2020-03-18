@@ -206,8 +206,14 @@ can create one which will continue execution without a newline character.
 |#
 
 (defun draw-screen (hunger entertainment)
-  (princ *hunger*)
-  (princ *entertainment*))
+  (croatoan:with-screen (scr :input-echoing nil
+			     :input-buffering nil
+			     :input-blocking nil
+			     :cursor-visible nil
+			     :bind-debugger-hook nil
+			     )
+    (print *hunger*)
+    ))
 
 #|
 
