@@ -65,9 +65,6 @@
 ;;; The main game loop!
 ;;; Here it is below:
 
-
-
-
 (defun main-loop ()
 
   (uwu-init)
@@ -91,12 +88,9 @@
 
   ;; Initialise the hunger variable  
 
-  (schedule-timer (make-timer (lambda () (hunger-timer)))
+  (schedule-timer (make-timer (lambda () (increase-hunger)
+				      (print *hunger*)))
 			      5 :repeat-interval 5))
-
-  (defun hunger-timer ()
-    (increase-hunger)
-    (print *hunger*))
 
 ;;; I imagine this little loop will whizz along very quickly, so that pressing
 ;;; A key will trigger game events seamlessly. All animation will occur by causing
@@ -120,16 +114,16 @@
 (defun read-keys ()
   (croatoan:with-screen (scr :input-echoing nil
 			     :input-buffering nil
-			     :input-blocking nil
+			     :input-blocking 100
 			     :cursor-visible nil
 			     :bind-debugger-hook nil
 			     )
-;;    (croatoan:clear scr)
+    (croatoan:clear scr)
     (croatoan:event-case (scr event)
 
       (#\f
        (setf *keypress* 'feed)
-       (print *hunger*)
+       (print *hunger* scr)
        (return-from croatoan:event-case))
 
       (#\t
@@ -169,26 +163,6 @@ can create one which will continue execution without a newline character.
 |#
   
 #|
-
-(defun animate (&optional (fps 10))
-    "Show the animation of the moving cart"
-    (let ((running T) (current-x 0))
-        (with-screen (scr :input-blocking (round (/ 1000 fps)) :enable-colors T
-                         :input-echoing NIL :cursor-visibility NIL
-                         :input-reading :unbuffered)
-            (clear scr)
-            (event-case (scr event)
-                (#\space (setf running (not running)))
-                ((NIL) (when running
-                           (incf current-x)
-                           (when (= current-x (+ 46 (round (/ (.width scr) 2))))
-                               (setf current-x 0))
-                           (draw-cart scr current-x)))
-                (otherwise (return-from event-case))))))
-
-|#
-
-#|
 <><><><><><><>
   GAME LOGIC
 <><><><><><><>
@@ -200,7 +174,7 @@ can create one which will continue execution without a newline character.
 		))
 
 (defun increase-hunger ()
-  (setq *hunger* (+ *hunger* 10))
+  (setf *hunger* (+ *hunger* 10))
   )
 
 (defun feed ()
@@ -220,7 +194,7 @@ can create one which will continue execution without a newline character.
 			     :cursor-visible nil
 			     :bind-debugger-hook nil
 			     )
-;;;    (print *hunger*)
+    (print *hunger* scr)
     ))
 
 #|
