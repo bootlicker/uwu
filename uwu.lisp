@@ -1,10 +1,6 @@
 (ql:quickload :croatoan)
 (require :croatoan)
 
-;; (defpackage #:uwu
-;;  (:use #:cl)
-;;  (:export #:main))
-
 ;;; ******************************************************************************
 ;;; * DEFINITION OF THE VARIABLES                                                *
 ;;; ******************************************************************************
@@ -22,19 +18,19 @@
 ;;; displeasure, and is the opposite of happy with you.
 
 (setf *happiness* 100)
-(setf *hunger* 0)
-(setf *entertainment* 100)
 
 ;;; This variable is the amount of hunger that the pet is experiencing.
 ;;; When the value reaches 100, the pet is absolutely famished. When it reaches this value,
 ;;; the happiness of your pet starts to decrease.
 
-
+(setf *hunger* 0)
 
 ;;; This is the variable that increases when you play with your pet.
 ;;; When you do interesting things with your pet, it increases this value, and when it
 ;;; reaches 100, it's fully tweakin' out happy, man!! This will positively affect
 ;;; your pet's happiness! The happiness variable will start to count upwards!
+
+(setf *entertainment* 100)
 
 ;;; These two variables pass values into different parts of the machinery of the game's logic.
 ;;; *keypress* passes the value of the key you press, that gets picked up by the library
@@ -75,8 +71,8 @@
 
 (setf uwu-mouth-gfx
       (list
-       "( u o u )"
-       "( u - u )"
+       "( . o . )"
+       "( . - . )"
        ))
 
 #|
