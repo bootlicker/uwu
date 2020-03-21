@@ -45,6 +45,8 @@
 
 (defparameter *keypress* nil)
 (defparameter *frame-counter* 0)
+(defparameter *movement* 0)
+(defparameter *rng-move* 0)
 
 
 #|
@@ -69,6 +71,7 @@
        "(> u w u)>"
        "<(u w u <)"
        ))
+
 
 (setf uwu-mouth-gfx
       (list
@@ -250,13 +253,17 @@ can create one which will continue execution without a newline character.
 			     :cursor-visible nil
 			     :enable-colors nil
 			     )
-    
-    (format t (nth *frame-counter* uwu-gfx) #\return)
+    (setf *rng-move* (random 5))
+    (cond ((and (= 3 *rng-move*) (> *movement* 0)) (decf *movement*))
+	  ((and (= 4 *rng-move*) (< *movement* 9)) (incf *movement*)))
+    (format t
+	    (apply #'concatenate 'string
+		   (list
+		    (subseq "         " *movement*)
+		    (nth *rng-move* uwu-gfx))) #\return)
     (print *hunger*)
-    (incf *frame-counter*)
-    (when (> *frame-counter* 4) (setf *frame-counter* 0))
-
-  ))
+    (print *movement*)
+    ))
 
 #|
 
