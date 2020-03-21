@@ -1,4 +1,3 @@
-(ql:quickload :croatoan)
 (require :croatoan)
 
 ;; (defpackage #:uwu
@@ -44,47 +43,6 @@
 ;;; which then draws the contents of that variable to the screen :-) 
 
 (defparameter *keypress* nil)
-(defparameter *frame-counter* 0)
-
-
-#|
-
-************
-* GRAPHICS *
-************
-
-|#
-
-(defun clear-emacs-buffer ()
-  (swank:eval-in-emacs
-   '(progn
-         (run-at-time 0 nil 'slime-repl-clear-buffer)
-         nil)))
-
-(setf uwu-gfx
-      (list
-       "( u w u )"
-       "(u w u )"
-       "( u w u)"
-       "(> u w u)>"
-       "<(u w u <)"
-       ))
-
-(setf uwu-mouth-gfx
-      (list
-       "( u o u )"
-       "( u - u )"
-       ))
-
-#|
-
-(・・。)ゞ
- 	Σ(； ･`д･´)
-
-
-|#
-
-
 
 ;;; ******************************************************************************
 ;;; *                             GAME LOGICK                                    *
@@ -114,6 +72,8 @@
   (loop
      (read-keys)
      (game-logic *keypress*)
+     (draw-screen *hunger* *entertainment*)
+
      ))
 
 #|
@@ -128,27 +88,17 @@
 
   ;; Initialise the hunger variable  
 
-  (schedule-timer (make-timer (lambda () (increase-hunger)))
-		  5 :repeat-interval 5)
+  (schedule-timer (make-timer (lambda () (hunger-timer)))
+			      5 :repeat-interval 5))
 
+  (defun hunger-timer ()
+    (increase-hunger)
+  ;;(print *hunger*)
 
-
-
-
-  (schedule-timer (make-timer (lambda ()
-
-				(clear-emacs-buffer)
-				(draw-screen *hunger* *entertainment*)))
-		  1 :repeat-interval 1)
-
-  
-  
-
-  )
-
+    )
 
 ;;; I imagine this little loop will whizz along very quickly, so that pressing
-;;; a key will trigger game events seamlessly. All animation will occur by causing
+;;; A key will trigger game events seamlessly. All animation will occur by causing
 ;;; the *screen-contents* variable to be updated a lot slower than the very fast
 ;;; pace at which the computer is executing all of the code for the game logic.
 
@@ -171,13 +121,14 @@
 			     :input-buffering nil
 			     :input-blocking 100
 			     :cursor-visible nil
-			     :enable-colors nil
+			     :bind-debugger-hook nil
 			     )
-    
+    (croatoan:clear scr)
     (croatoan:event-case (scr event)
 
       (#\f
        (setf *keypress* 'feed)
+       (print *hunger* scr)
        (return-from croatoan:event-case))
 
       (#\t
@@ -228,7 +179,7 @@ can create one which will continue execution without a newline character.
 		))
 
 (defun increase-hunger ()
-  (setf *hunger* (+ *hunger* 10))
+  (setq *hunger* (+ *hunger* 10))
   )
 
 (defun feed ()
@@ -242,45 +193,14 @@ can create one which will continue execution without a newline character.
 |#
 
 (defun draw-screen (hunger entertainment)
-
- 
   (croatoan:with-screen (scr :input-echoing nil
 			     :input-buffering nil
-			     :input-blocking 100
+			     :input-blocking nil
 			     :cursor-visible nil
-			     :enable-colors nil
+			     :bind-debugger-hook nil
 			     )
-    
-    (format t (nth *frame-counter* uwu-gfx) #\return)
-    (print *hunger*)
-    (incf *frame-counter*)
-    (when (> *frame-counter* 4) (setf *frame-counter* 0))
-
-  ))
-
-#|
-
-(fifth a)
-(format nil "The value is: ~a" "foo")
-(list "a" "b")
-(print (list "a" "ab"))
-(format t (car (list "a" "ab")))
-
-CL-USER 5 > (defun foo ()
-              (format t "hello")
-              (format t "world")
-              (values))
-FOO
-
-CL-USER 6 > (foo)
-helloworld   ; <- printed by two FORMAT statements
-             ; <- no return value -> nothing printed by the REPL
-
-
-(apply #'concatenate 'string (list "a" "b" "c"))
-
-|#
-  
+;;;    (print *hunger*)
+    ))
 
 #|
 

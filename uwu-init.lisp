@@ -25,7 +25,8 @@
                          ;; Do not override the swank debugger hook,
                          ;; as we want to enter the slime debugger in
                          ;; emacs when a error occurs.
-                         :bind-debugger-hook nil)
+                         :bind-debugger-hook nil
+			 :enable-colors nil)
     ;; Set *scr* to the initilized scr so that we can access it form
     ;; the swank thread and then enter the event-loop.
     (croatoan:run-event-loop (setf *scr* scr))))
