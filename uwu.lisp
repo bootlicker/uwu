@@ -137,6 +137,15 @@
        "∿(°○° ∿)"
        ))
 
+(setf shocked-gfx
+      (list
+       "( ;◎ _ ◎；)"
+       "(◎ _ ◎； )"
+       "( ;◎ _ ◎)"
+       "(~ ;◎_◎)~"
+       "~(◎_◎； ~)"
+       ))
+
 
 #|
 
@@ -153,10 +162,12 @@
 
 (●´⌓`●)
 
-(；☉_☉)
-
 (ᗒᗣᗕ)՞
 
+(━┳━ _ ━┳━)
+(━┳━ _ ━┳━)
+(━┳━ _ ━┳━)
+(━┳━ _ ━┳━)
 (━┳━ _ ━┳━)
 
 (┳Д┳)
@@ -167,7 +178,7 @@
 
 (⊙▂⊙)
 
-(◎-◎；)
+
 
 
 
@@ -229,20 +240,11 @@
   (schedule-timer (make-timer (lambda () (increase-hunger)))
 		  5 :repeat-interval 5)
 
-
-
-
-
   (schedule-timer (make-timer (lambda ()
-
 				(clear-emacs-buffer)
 				(draw-screen *hunger* *entertainment*)))
 		  1 :repeat-interval 1)
-
-  
-  
-
-  )
+)
 
 
 ;;; I imagine this little loop will whizz along very quickly, so that pressing
