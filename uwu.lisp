@@ -319,45 +319,33 @@ Write the comments for the keypressing function here.
 
 (defun process-state ()
 
-  (cond ((and
-	  (> *happiness* 90)
-	  (equal 'normal *state))
-	 (setf *pet-appearance* birb-face)))
+  (cond
 
-  (cond ((and
-	  (> *happiness* 80)
-	  (equal 'normal *state*))
-	 (setf *pet-appearance* owo-gfx)))
+    ((and
+      (> *happiness* 90)
+      (equal 'normal *state))
+     (setf *pet-appearance* birb-face))
+        
+  ((and
+    (> *happiness* 80)
+    (equal 'normal *state*))
+   (setf *pet-appearance* owo-gfx))
+    
+  ((and
+    (> *happiness* 50)
+    (equal 'normal *state*))
+   (setf *pet-appearance* uwu-gfx))
   
-  (cond ((and
-	  (> *happiness* 70)
-	  ())
-	 ()))
-
-  (cond ((and
-	  (> *happiness* 60)
-	  ())
-	 ()))
-
-  (cond ((and
-	  (> *happiness* 50)
-	  ())
-	 ()))
-
-   (cond ((and
-	  (> *happiness* 40)
-	  ())
-	  ()))
-
-   (cond ((and
-	  (> *happiness* 30)
-	  ())
-	  ()))
-
-   
-
-
-
+  ((and
+    (> *happiness* 40)
+    (equal 'normal *state*))
+   (setf *pet-appearance* shocked-gfx))
+  
+  ((and
+    (> *happiness* 20)
+    (equal 'normal *state*))
+   (setf *pet-appearance* run-away-gfx)))
+  
 (defun increase-hunger ()
   (setf *hunger* (+ *hunger* 1))
   )
