@@ -17,33 +17,30 @@
 ;;; It counts up or down, but when it reaches zero, the pet is fully upset, and at maximum
 ;;; displeasure, and is the opposite of happy with you.
 
-(setf *happiness* 100)
+(defparameter *happiness* 75)
 
 ;;; This variable is the amount of hunger that the pet is experiencing.
 ;;; When the value reaches 100, the pet is absolutely famished. When it reaches this value,
 ;;; the happiness of your pet starts to decrease.
 
-(setf *hunger* 0)
+(defparameter *hunger* 0)
 
 ;;; This is the variable that increases when you play with your pet.
 ;;; When you do interesting things with your pet, it increases this value, and when it
 ;;; reaches 100, it's fully tweakin' out happy, man!! This will positively affect
 ;;; your pet's happiness! The happiness variable will start to count upwards!
 
-(setf *entertainment* 100)
+(defparameter *entertainment* 100)
 
-;;; These two variables pass values into different parts of the machinery of the game's logic.
-;;; *keypress* passes the value of the key you press, that gets picked up by the library
-;;; we call that scans the keyboard input.
-;;;
-;;; *screen-contents*, however, passes the output that the game logic prepares to a function
-;;; which then draws the contents of that variable to the screen :-) 
+#| new comments needed |#
 
 (defparameter *keypress* nil)
 (defparameter *frame-counter* 0)
 (defparameter *movement* 0)
 (defparameter *rng-move* 0)
+(defparameter *state* 'normal)
 
+;;; 'normal 'birb 'cat 'cool-dude
 
 #|
 
@@ -77,7 +74,7 @@
        "<(o w o <)"
        ))
 
-(setf birdy-face
+(setf birb-face
       (list
        "( o v o )"
        "(o v o )"
@@ -244,8 +241,10 @@
    
   (loop
      (read-keys)
-     (game-logic *keypress*)
-     ))
+     (comprehend-input *keypress*)
+     (process-state)))
+
+
 
 #|
 
@@ -257,16 +256,14 @@
 
 (defun uwu-init ()
 
+  ;; Set the initial appearance of the uwu-pet :3
+  
+  (defparameter *pet-appearance* uwu-gfx)
+
   ;; Initialise the hunger variable  
 
-  (schedule-timer (make-timer (lambda () (increase-hunger)))
-		  5 :repeat-interval 5)
-
-  (schedule-timer (make-timer (lambda ()
-				(clear-emacs-buffer)
-				(draw-screen *hunger* *entertainment*)))
-		  1 :repeat-interval 1)
-)
+  (schedule-timer (make-timer #'increase-hunger)))
+		  5 :repeat-interval 5))
 
 
 ;;; I imagine this little loop will whizz along very quickly, so that pressing
@@ -318,23 +315,7 @@
 
 #|
 
-This function reads the user input from they keyboard, and stores it in a global
-variable, for the next function in the main game loop to take and then set the game
-state properly.
-
-The first line of this function stores the output of the function call 'read-event'
-in the package/library that we load in order to make this game work.
-The output that we store is an /object structure/ that is defined inside the package.
-
-The second line extracts a single /attribute/ from this object, the symbol for the
-character that you have presed - say, #\t if you press 't'.
-
-We're going to pass this escaped symbol to the game logic function, in order to tell
-it that we have selected some key, so we can navigate menus or interact with the pet!
-
-I am worried, however. I think that this function will not continue execution if no
-key press is made. So below is a whole bunch of testing of functions to see if I
-can create one which will continue execution without a newline character.
+Write the comments for the keypressing function here.
 
 |#
   
@@ -344,18 +325,38 @@ can create one which will continue execution without a newline character.
 <><><><><><><>
 |#
 
-(defun game-logic (key-input)
+(defun comprehend-input (key-input)
   (cond ((equal 'feed key-input) (feed))
 	((equal 'toy key-input) (setf *enterainment* (+ *entertainment* 10)))
 		))
 
+(defun process-state ()
+  (cond ((and
+	  (> *happiness* 80)
+	  (equal 'normal *state*))
+	 (setf *pet-appearance* owo-gfx)))
+  (cond ((and
+	  (> *happiness* 90)
+	  (equal 'normal *state))
+	 (setf *pet-appearance* birb-face)))
+
 (defun increase-hunger ()
-  (setf *hunger* (+ *hunger* 10))
+  (setf *hunger* (+ *hunger* 1))
   )
 
 (defun feed ()
+  (unschedule-timer idle-state
   (setf *hunger* 0)
   )
+
+(defun idle-state ()
+  (clear-emacs-buffer)
+  (draw-screen-idle *hunger* *entertainment*))
+  
+(setq *idle-state* (make-timer #'idle-state :name 'idle-state))
+(schedule-timer *idle-state*)
+
+    
 
 #|
 <><><><><><><><><><><>
@@ -363,7 +364,7 @@ can create one which will continue execution without a newline character.
 <><><><><><><><><><><>
 |#
 
-(defun draw-screen (hunger entertainment)
+(defun draw-screen-idle (hunger entertainment)
 
  
   (croatoan:with-screen (scr :input-echoing nil
@@ -379,7 +380,7 @@ can create one which will continue execution without a newline character.
 	    (apply #'concatenate 'string
 		   (list
 		    (subseq "         " *movement*)
-		    (nth *rng-move* uwu-gfx))) #\return)
+		    (nth *rng-move* character-gfx))) #\return)
     (print *hunger*)
     (print *movement*)
     ))
@@ -408,5 +409,12 @@ helloworld   ; <- printed by two FORMAT statements
 |#
   
 
+(defun print-hello () (print "hello"))
+(defvar *hello-timer* (make-timer #'print-hello))
+(progn (print-hello) (schedule-timer *hello-timer* 1 :repeat-interval 1))
 
+(unschedule-timer (print-hello))
 
+(setq *timer* (make-timer #'print-hello :name 'idle-state))
+(schedule-timer *timer* 1 :repeat-interval 1)
+(unschedule-timer *timer*)
