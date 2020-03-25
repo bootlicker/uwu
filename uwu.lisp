@@ -39,6 +39,7 @@
 (defparameter *movement* 0)
 (defparameter *rng-move* 0)
 (defparameter *state* 'normal)
+(defparameter *pet-appearance* uwu-gfx)
 
 ;;; 'normal 'birb 'cat 'cool-dude
 
@@ -161,33 +162,20 @@
        "∈(o/_o ∈)"
        ))
 
-
-
 #|
 
 (・・。)ゞ
  	Σ(； ･`д･´)
 
-
-
-
-
 (･_･)
-
-
 
 (●´⌓`●)
 
 (ᗒᗣᗕ)՞
 
-
-
 (┳Д┳)
 
 .·´¯`(>▂<)´¯`·.
-
-
-
 
 ( u_\u)
 ( ´◡‿\◡`)
@@ -197,18 +185,9 @@
 
 (⊙▂⊙)
 
-
-
-
-
-
-
 (✖╭╮✖)
 
 （・∀・）
-
-
-
 
 |#
 
@@ -256,14 +235,22 @@
 
 (defun uwu-init ()
 
+  (defun idle-state ()
+    (clear-emacs-buffer)
+    (draw-screen-idle *hunger* *entertainment*))
+  
+  
+  (setq *idle-state* (make-timer #'idle-state :name 'idle-state))
+
   ;; Set the initial appearance of the uwu-pet :3
   
-  (defparameter *pet-appearance* uwu-gfx)
+  (schedule-timer *idle-state* 1 :repeat-interval 1)
 
-  ;; Initialise the hunger variable  
+  ;; Initialise the hunger variable
 
-  (schedule-timer (make-timer #'increase-hunger)))
-		  5 :repeat-interval 5))
+  (setq *increase-hunger* (make-timer #'increase-hunger :name 'increase-hunger))
+
+  (schedule-timer *increase-hunger* 5 :repeat-interval 5)
 
 
 ;;; I imagine this little loop will whizz along very quickly, so that pressing
@@ -331,14 +318,45 @@ Write the comments for the keypressing function here.
 		))
 
 (defun process-state ()
-  (cond ((and
-	  (> *happiness* 80)
-	  (equal 'normal *state*))
-	 (setf *pet-appearance* owo-gfx)))
+
   (cond ((and
 	  (> *happiness* 90)
 	  (equal 'normal *state))
 	 (setf *pet-appearance* birb-face)))
+
+  (cond ((and
+	  (> *happiness* 80)
+	  (equal 'normal *state*))
+	 (setf *pet-appearance* owo-gfx)))
+  
+  (cond ((and
+	  (> *happiness* 70)
+	  ())
+	 ()))
+
+  (cond ((and
+	  (> *happiness* 60)
+	  ())
+	 ()))
+
+  (cond ((and
+	  (> *happiness* 50)
+	  ())
+	 ()))
+
+   (cond ((and
+	  (> *happiness* 40)
+	  ())
+	  ()))
+
+   (cond ((and
+	  (> *happiness* 30)
+	  ())
+	  ()))
+
+   
+
+
 
 (defun increase-hunger ()
   (setf *hunger* (+ *hunger* 1))
@@ -349,12 +367,8 @@ Write the comments for the keypressing function here.
   (setf *hunger* 0)
   )
 
-(defun idle-state ()
-  (clear-emacs-buffer)
-  (draw-screen-idle *hunger* *entertainment*))
-  
-(setq *idle-state* (make-timer #'idle-state :name 'idle-state))
-(schedule-timer *idle-state*)
+
+
 
     
 
@@ -385,36 +399,9 @@ Write the comments for the keypressing function here.
     (print *movement*)
     ))
 
+
 #|
-
-(fifth a)
-(format nil "The value is: ~a" "foo")
-(list "a" "b")
-(print (list "a" "ab"))
-(format t (car (list "a" "ab")))
-
-CL-USER 5 > (defun foo ()
-              (format t "hello")
-              (format t "world")
-              (values))
-FOO
-
-CL-USER 6 > (foo)
-helloworld   ; <- printed by two FORMAT statements
-             ; <- no return value -> nothing printed by the REPL
-
-
-(apply #'concatenate 'string (list "a" "b" "c"))
-
-|#
-  
-
-(defun print-hello () (print "hello"))
-(defvar *hello-timer* (make-timer #'print-hello))
-(progn (print-hello) (schedule-timer *hello-timer* 1 :repeat-interval 1))
-
-(unschedule-timer (print-hello))
-
 (setq *timer* (make-timer #'print-hello :name 'idle-state))
 (schedule-timer *timer* 1 :repeat-interval 1)
 (unschedule-timer *timer*)
+|#
