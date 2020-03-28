@@ -344,7 +344,7 @@ Write the comments for the keypressing function here.
   ((and
     (> *happiness* 20)
     (equal 'normal *state*))
-   (setf *pet-appearance* run-away-gfx)))
+   (setf *pet-appearance* run-away-gfx))))
   
 (defun increase-hunger ()
   (setf *hunger* (+ *hunger* 1))
