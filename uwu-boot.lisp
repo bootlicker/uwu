@@ -69,6 +69,7 @@
     )
   (sleep 4)
   (format t ":3")
+  (sleep 0.25)
   (clear-emacs-buffer)
   (dotimes (i (* 69 3))
     (format t "~x  " (random 69))
