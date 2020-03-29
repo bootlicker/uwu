@@ -353,25 +353,50 @@
      (are you sure ?)
      (i see !!)
      (i understand))
- 
+
+    ;;; i wish
     
     ((* x i wish * y)
      (why would it be better if y ?))
+
+
+    ;;; i hate
+
     
     ((* x i hate * y)
      (what makes you hate y ?))
+
+
+    ;;; if
+
     
     ((* x if * y)
      (do you weawwy think it is wikewy that y ?? XD)
      (wat u think about y ??))
-    
+
+
+    ;;; i was
     
     ((* x i was * y)
      (why do you say x you were y ?))
+
+
+    ;;; misc
+
     
     ((* x)
      (you say x ?)
-     (tell me more.))))
+     (tell me more.)
+     (i see!! ^w^)
+     (i don't understand you fuwwy !!)
+     (you don't say !!)
+     (UwU)
+     (can you elaborate on that?)
+     (that is quite interesting!)
+     (does that suggest anything to you ??)
+     
+     )
+    ))
 
 (defun random-elt (list)
   (nth (random (length list)) list))
