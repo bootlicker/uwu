@@ -60,6 +60,15 @@
 			    (I'm you're)
 			    (you're I'm)
 
+			    (I'll you'll)
+			    (you'll I'll)
+
+			    (yours mine)
+			    (mine yours)
+
+			    (I'd you'd)
+			    (you'd I'd)
+
 			    ))
 
 (defun swap (value)
@@ -181,7 +190,7 @@
 
     ((* x you * y)
      (OwO oh yeah??)
-     (oh, i y)
+     (oh i y)
      (are you wweawwy talking about me ? >w<)
      (awwe we discussing u or me? XD))
     
@@ -212,8 +221,11 @@
     ;;; how
 
     ((* x how * y)
-     ())
+     (how do you suppose ?)
+     (have you tried answering that yourself ? what did you come up with ? ^.^)
+     (what awwe you weawwy awwsking ??))
 
+#|
     
     ;;; who
 
@@ -239,6 +251,8 @@
     ((* x why * y)
      ())
 
+|#
+
     ;;; cause
 
     ((* x cause * y)
@@ -259,7 +273,7 @@
     ;;; sorry
 
     ((* x sorry * y)
-     (dont apologise, iss kay-o ^w^)
+     (dont apologise -- iss kay-o ^w^)
      (apologies are not necessary !!)
      (you say sowwee... what makes you feel the need to apologise ?))
 
@@ -287,7 +301,7 @@
      (howdy~~ >w<)
      (wewwcome!!! XD)
      (hi ya~~)
-     (good day, hooman!)
+     (good day hooman!)
      (^.^ what's up ?)
      (hey~~ o.o)
      (awwo!! wass happenying ?))
@@ -379,6 +393,13 @@
     
     ((* x i was * y)
      (why do you say x you were y ?))
+
+    ;; how are you
+
+    ((how are you * y)
+     (*** PERFORMING SELF-DIAGNOSTIC *** i appear to be functioning within operating parameters!! ^_^)
+     (i am quite gewd~)
+     (fine~! how are you??))
 
 
     ;;; misc
