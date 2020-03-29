@@ -86,10 +86,247 @@
      (^.^ what's up ?)
      (hey~~ o.o)
      (awwo!! wass happenying ?))
+
+;;; can you
     
+    ((* x can you * y)
+     (don't you believe than i can y ?)
+     (perhaps you would like to be able to y ?)
+     (do you want me to be able to y ?)
+     (what makes you think i could y ?))
+
+;;; can i
+    
+    ((* x can i * y)
+     (perhaps you don't want to y)
+     (do you want to be able to y)
+     (do you think you couldn't y ?))
+
+;;; you are
+    
+    ((* x you are * y)
+     (what makes you think i am y)
+     (does it make u happy to believe i am y)
+     (perhaps you would like to be y)
+     (do you sometimes desiwwe to be))
+
+;;; you're
+
+;;; i don't
+
+    ((* x i don't * y)
+     (don't you really y)
+     (why don't you y)
+     (do you wish to be able to y)
+     (does that trouble you ?))
+
+    ;;; i feel
+
+    ((* x i feel * y)
+     (do u often feew y ?)
+     (do u feew y fwequentwy?)
+     (hmm.. teww me mowe... UwU is feewing y enjoyabew?)
+     (does feewing y come to you easiwy ??)
+     (does feewing y bother u ? owo'' ??)
+     (wat r u aware of wen u feel y ??))
+
+;;; i felt
+
+    ((* x i felt * y)
+     (wat othew feewings do you have?)
+     (ooo... OWO~~! teww me mowe!!))
+    
+    
+    ;;; why you
+
+    ((x * why you * y)
+     (do you really believe i don't y)
+     (perhaps in time i will y)
+     (do you want me to y))
+    
+    ;;; why i
+
+
+    ((x * why i * y)
+     (do you think you should be able to y ?)
+     (why can't you y))
+    
+    ;;; are you
+
+    ((* x are you * y)
+     ())
+    
+
+    
+    ;;; i can't
+
+    ((* x i cant * y)
+     ())
+
+
+    
+    ;;; i am
+
+    ((* x i am * y)
+     ())
+
+    
+    ;;; i'm
+
+    ((* x im * y)
+     ())
+
+    
+    ;;; you
+
+    ((* x you * y)
+     ())
+
+    
+    ;;; i want
+
     ((* x i want * y)
      (what it mean if u pwocuwed y ?)
-     (OwO why do u wequiwe y ??))
+     (OwO why do u wequiwe y ??)
+     (hmm... suppose u soon got y ?)
+     (what if you never obtainyed y)
+     (i sometimes also desiwe y))
+    
+    
+    ;;; what
+
+    (()
+     ())
+
+
+    
+    ;;; how
+
+    (()
+     ())
+
+    
+    ;;; who
+
+    (()
+     ())
+
+    
+    ;;; where
+
+    (()
+     ())
+
+    
+    ;;; when
+
+    (()
+     ())
+
+    
+    ;;; why
+
+
+    (()
+     ())
+
+    
+    ;;; name
+
+    (()
+     ())
+
+
+    
+    ;;; names
+
+    (()
+     ())
+
+    
+    ;;; cause
+
+    (()
+     ())
+
+    
+    ;;; because
+
+    (()
+     ())
+
+    
+    ;;; sorry
+
+    (()
+     ())
+
+    
+    ;;; dream
+
+    (()
+     ())
+
+    
+    ;;; dreams
+
+    (()
+     ())
+
+    
+    ;;; hello
+
+
+    
+    ;;; hi
+
+
+    
+    ;;; maybe
+
+    (()
+     ())
+
+    
+    ;;; no
+
+    ((* x no * y)
+     (v_v'' !!! whye not ?)
+     (r u sure ?)
+     (@-@ >>NOTICES UR NEGATION<< whye u say dat ?)
+     (...seems ur wesponding nyegativewy .w.  whye is dat ??)
+     (whye not ? u not happy ._. ?))
+    
+    ;;; your
+
+    (()
+     ())
+
+    
+    ;;; always
+    
+    (()
+     ())
+
+    
+    ;;; think
+
+    (()
+     ())
+
+    
+    ;;; alike
+
+    (()
+     ())
+
+    
+    ;;; yes
+    
+    (()
+     ())
+    
+
     
     ((* x i wish * y)
      (why would it be better if y ?))
@@ -98,20 +335,16 @@
      (what makes you hate y ?))
     
     ((* x if * y)
-     (do you really think it is likely that y)
-     (what do you think about y))
+     (do you weawwy think it is wikewy that y ?? XD)
+     (wat u think about y ??))
     
-    ((* x no * y)
-     (why not?))
     
     ((* x i was * y)
      (why do you say x you were y ?))
     
-    ((* x i feel * y)
-     (do you often feel y ?))
+
     
-    ((* x i felt * y)
-     (what other feelings do you have?))
+
     
     ((* x)
      (you say x ?)
