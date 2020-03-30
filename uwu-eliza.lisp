@@ -69,6 +69,7 @@
 			    (I'd you'd)
 			    (you'd I'd)
 
+
 			    ))
 
 (defun swap (value)
@@ -104,55 +105,54 @@
 ;;; you are
     
     ((* x you are * y)
-     (what makes you think i am y)
-     (does it make u happy to believe i am y)
-     (perhaps you would like to be y)
-     (do you sometimes desiwwe to be))
+     (what makes you think i am y ?)
+     (does it make u happy to believe i am y ?)
+     (perhaps you would like to be y ?)
+     (do you sometimes desire to be y ?))
 
 ;;; you're
 
     ((* x you are * y)
-     (what makes you think i am y)
-     (does it make u happy to believe i am y)
-     (perhaps you would like to be y)
-     (do you sometimes desiwwe to be))
+     (what makes you think i am y ?)
+     (does it make u happy to believe i am y ?)
+     (perhaps you would like to be y ?)
+     (do you sometimes desiwwe to be y ?))
 
 ;;; i don't
 
     ((* x i don't * y)
-     (don't you really y)
-     (why don't you y)
-     (do you wish to be able to y)
+     (don't you really y ?)
+     (why don't you y ?)
+     (do you wish to be able to y ?)
      (does that trouble you ?))
 
     ;;; i feel
 
     ((* x i feel * y)
-     (do u often feew y ?)
-     (do u feew y fwequentwy?)
-     (hmm.. teww me mowe... UwU is feewing y enjoyabew?)
-     (does feewing y come to you easiwy ??)
-     (does feewing y bother u ? owo'' ??)
-     (wat r u aware of wen u feel y ??))
+     (do you often feel y ?)
+     (do you feel y frequently?)
+     (hmm.. tell me more... UwU is feeling y enjoyable?)
+     (does feeling y come to you easily ??)
+     (does feeling y bother you ? owo'' ??)
+     (what are you aware of when you feel y ??))
 
     ;;; i felt
     
     ((* x i felt * y)
-     (wat othew feewings do you have?)
-     (ooo... OWO~~! teww me mowe!!))
+     (what other feelings do you have?)
+     (ooo... OWO~~! tell me more!!))
     
     
     ;;; why you
 
-    ((x * why you * y)
+    ((* x why you * y)
      (do you really believe i don't y)
      (perhaps in time i will y)
      (do you want me to y))
     
     ;;; why i
 
-
-    ((x * why i * y)
+    ((* x why i * y)
      (do you think you should be able to y ?)
      (why can't you y))
     
@@ -184,7 +184,8 @@
      (did you wanna talk to me because you are y ?)
      (how long have you been y ?)
      (do you wweckon its normal to be y ?)
-     (do you enjoy being y ?))
+     (do you enjoy being y ?)
+     (why do you think you are y ?))
         
     ;;; you
 
@@ -207,7 +208,7 @@
     ;;; what
 
     ((* x what * y)
-     (y do u awwsk ??)
+     (why do you ask ??)
      (does that interest you ?)
      (what answer would please you the most ?)
      (what do you think ?)
@@ -223,7 +224,7 @@
     ((* x how * y)
      (how do you suppose ?)
      (have you tried answering that yourself ? what did you come up with ? ^.^)
-     (what awwe you weawwy awwsking ??))
+     (what are you really asking ??))
 
 #|
     
@@ -378,7 +379,9 @@
 
     
     ((* x i hate * y)
-     (what makes you hate y ?))
+     (what makes you hate y ?)
+     (you say you hate y ! why is that?)
+     (really? you hate y ?)
 
 
     ;;; if
