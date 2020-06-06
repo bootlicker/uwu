@@ -299,7 +299,7 @@ Write the comments for the keypressing function here.
 
 (defun comprehend-input (key-input)
   (cond ((equal 'feed key-input) (feed))
-	((equal 'toy key-input) (setf *enterainment* (+ *entertainment* 10)))
+	((equal 'toy key-input) (setf *entertainment* (+ *entertainment* 10)))
 		))
 
 (defun process-state ()
