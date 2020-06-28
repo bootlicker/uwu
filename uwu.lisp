@@ -377,40 +377,18 @@ Write the comments for the keypressing function here.
 (defun comprehend-input (key-input)
   (cond ((equal 'feed key-input) (feed))
 	((equal 'toy key-input) (setf *enterainment* (+ *entertainment* 10)))
-	((equal 'menu key-input) (
-		))
+	((equal 'menu key-input) ()
+		)))
 
 (defun process-state ()
 
-
-
-  
   (cond
-    
-    ((and
-      (> *hunger* 90)
-      (equal 'normal *state*))
-     (setf *pet-appearance* birb-face))
-        
-  ((and
-    (> *hunger* 80)
-    (equal 'normal *state*))
-   (setf *pet-appearance* owo-gfx))
-    
-  ((and
-    (> *hunger* 50)
-    (equal 'normal *state*))
-   (setf *pet-appearance* uwu-gfx))
-  
-  ((and
-    (> *hunger* 40)
-    (equal 'normal *state*))
-   (setf *pet-appearance* shocked-gfx))
-  
-  ((and
-    (> *hunger* 20)
-    (equal 'normal *state*))
-   (setf *pet-appearance* run-away-gfx))))
+    ((equal 'normal *state*)
+     (cond ((> *hunger* 90) (setf *pet-appearance* birb-face))
+	   ((> *hunger* 80)(setf *pet-appearance* owo-gfx))
+	   ((> *hunger* 50)(setf *pet-appearance* uwu-gfx))
+	   ((> *hunger* 40)(setf *pet-appearance* shocked-gfx))
+	   ((> *hunger* 20)(setf *pet-appearance* run-away-gfx)))))
   
 (defun increase-hunger ()
   (setf *hunger* (+ *hunger* 5))
