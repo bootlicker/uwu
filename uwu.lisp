@@ -351,6 +351,10 @@ Write the comments for the keypressing function here.
       (#\t
        (setf *keypress* 'toy)
        (return-from croatoan:event-case))
+
+      (#\m
+       (setf *keypress* 'menu)
+       (return-from croatoan:event-case))
       
       ((nil)
        (setf *keypress* nil)
