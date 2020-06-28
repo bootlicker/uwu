@@ -377,10 +377,14 @@ Write the comments for the keypressing function here.
 (defun comprehend-input (key-input)
   (cond ((equal 'feed key-input) (feed))
 	((equal 'toy key-input) (setf *enterainment* (+ *entertainment* 10)))
+	((equal 'menu key-input) (
 		))
 
 (defun process-state ()
 
+
+
+  
   (cond
     
     ((and
@@ -447,4 +451,25 @@ Write the comments for the keypressing function here.
     (print *movement*)
     ))
 
+;;; This function below will stop the drawing of the animations of the
+;;; pet in its idle state, and instead draw the game's main menu,
+;;; where you will have the ability to perform more complex
+;;; interactions with the pet.
 
+;;; The timers that change the pet's internal state will continue
+;;; running in the background, so the game is not paused.
+
+(defun draw-screen-menu ()
+
+  (unschedule-timer *idle-state*)
+
+  (croatoan:with-screen (scr :input-echoing nil
+			     :input-buffering nil
+			     :input-blocking 100
+			     :cursor-visible nil
+			     :enable-colors nil
+			     )
+
+;;; menu items and corresponding key input here
+    
+  ))
