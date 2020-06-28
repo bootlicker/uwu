@@ -312,7 +312,11 @@
   
   (schedule-timer *idle-state* 1 :repeat-interval 1)
 
-  ;; Initialise the hunger variable
+;;; Initialise the hunger variable. Here we are doing the same thing
+;;; as before, even though I anticipate this little scheduled function
+;;; not to need to be halted and restarted that often. I suppose what
+;;; I am doing here is trying to make my life easier, if I decide to
+;;; allow the user to put their pet in 'holiday mode' or some such.
 
   (setq *increase-hunger* (make-timer #'increase-hunger :name 'increase-hunger))
 
@@ -323,6 +327,12 @@
 ;;; <><><><><><><><><><><><><>
 ;;;    READING USER INPUT
 ;;; <><><><><><><><><><><><><>
+
+#|
+
+Write the comments for the keypressing function here.
+
+|#
 
 (defun read-keys ()
   (croatoan:with-screen (scr :input-echoing nil
@@ -352,11 +362,7 @@
 
       )))
 
-#|
 
-Write the comments for the keypressing function here.
-
-|#
   
 #|
 <><><><><><><>
@@ -438,8 +444,3 @@ Write the comments for the keypressing function here.
     ))
 
 
-#|
-(setq *timer* (make-timer #'print-hello :name 'idle-state))
-(schedule-timer *timer* 1 :repeat-interval 1)
-(unschedule-timer *timer*)
-|#
