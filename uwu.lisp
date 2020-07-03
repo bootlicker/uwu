@@ -114,11 +114,11 @@
 
 (setf smart-gfx
       (list
-       "( o _| o )"
-       "(o/_o )"
-       "( o_\o)"
-       "(∋ o_\o)∋"
-       "∈(o/_o ∈)"
+       "( u _| u )"
+       "(u/_u )"
+       "( u_\u)"
+       "(∋ u_\u)∋"
+       "∈(u/_u ∈)"
        ))
 
 ;;; The following are kaomoji pet graphics that I still need to implement. u_u
@@ -129,7 +129,7 @@
 (・・。)ゞ
  	Σ(； ･`д･´)
 
-(･_･)
+
 
 (●´⌓`●)
 
@@ -150,6 +150,67 @@
 (✖╭╮✖)
 
 （・∀・）
+
+(n˘v˘•)¬
+
+
+********************
+***** ëgg: *********
+********************
+
+o O °ﾟº Ó Õ Ø ô Ơ ơ Өө₀.｡ₒ ₍.₎ 
+
+********************
+***** babby: *******
+********************
+
+#### lawful: ######
+
+~¦o zzz
+~¦| zzz
+~:o
+~:0
+~:v
+~:V
+~:U
+
+c:~
+c;~
+0:~
+^:~
+
+
+ő
+
+##### chaotic ######
+
+( ' , ' )
+
+(｡ﾟ◎ﾟ｡)
+(｡◎｡)
+( ﾟ◎ﾟ )
+(.◎.)
+(`◎`)
+(>◎<)
+(o◎o)
+(･_･)
+('△')
+(’∽’)
+
+(ー。ー) zzz
+
+★☽(。￣-￣)
+
+(ﾉ△･｡)
+
+
+********************
+***** child ********
+********************
+
+(*◕‿◕*)
+
+********************
 
 |#
 
@@ -365,8 +426,6 @@ Write the comments for the keypressing function here.
        (return-from croatoan:event-case))
 
       )))
-
-
   
 #|
 <><><><><><><>
@@ -440,6 +499,7 @@ Write the comments for the keypressing function here.
 (defun draw-screen-menu ()
 
   (unschedule-timer *idle-state*)
+  (clear-emacs-buffer)
 
   (croatoan:with-screen (scr :input-echoing nil
 			     :input-buffering nil
