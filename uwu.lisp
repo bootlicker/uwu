@@ -27,22 +27,63 @@
 ;;; o O °ﾟº Ó Õ Ø ô Ơ ơ Өө₀.
 
 (defparameter *babby-gfx*
-  (list '(lawful
-	  "~:0" ;; forward
-	  "o:~" ;; left-facing
-	  "~:o" ;; right-facing
-	  "~:v" ;; right-moving
-	  "c:~" ;; left-moving
-	  )
-	'(chaotic
-	  "( .◎. )" ;; forward
-	  "(｡◎｡  )" ;; left-facing
-	  "(  ｡◎｡)" ;; right-facing
-	  "(_ ｡◎｡)_" ;; right-moving
-	  "_(｡◎｡ _)" ;; left-moving
-	  )))
+  (list
+   '(lawful
+     "~:0" ;; forward
+     "o:~" ;; left-facing
+     "~:o" ;; right-facing
+     "~:v" ;; right-moving
+     "c:~" ;; left-moving
+     )
+   '(chaotic
+     "( .◎. )" ;; forward
+     "(｡◎｡  )" ;; left-facing
+     "(  ｡◎｡)" ;; right-facing
+     "(_ ｡◎｡)_" ;; right-moving
+     "_(｡◎｡ _)" ;; left-moving
+     )))
 
 
+(defparameter *child-gfx*
+  (list
+   '(normie
+     "(✿^‿^✿)"
+     "(^‿^✿ )"
+     "( ✿^‿^)"
+     "(>✿^‿^)>"
+     "<(^‿^✿<)")
+   '(active
+     "( o v o )"
+     "(o v o )"
+     "( o v o)"
+     "( ┘o v o)┘"
+     "┌(o v o┌ )")
+   '(funny
+     "( 。v ° )"
+     "(。v ° )☆"
+     "☆( 。v °)"
+     "☆( >。v °)>"
+     "<(。v °< )☆")
+   '(loud
+     "( ＾▽＾ )"
+     "(＾▽＾ )"
+     "( ＾▽＾)"
+     "( >＾▽＾)>"
+     "<(＾▽＾< )")))
+
+
+********************
+***** child ********
+********************
+
+
+normie:  (✿^‿^)
+
+active: ┌(o v o)┘
+
+funny: (。v °)☆
+
+loud: (＾▽＾)
 
 
 (setf uwu-gfx
@@ -176,18 +217,7 @@ cξ~~
 
 (_ _)..ooOO
 
-********************
-***** child ********
-********************
 
-
-normie:  (✿^‿^)
-
-active: ┌(o v o)┘
-
-funny: (。v °)☆
-
-loud: (＾▽＾)
 
 
 
