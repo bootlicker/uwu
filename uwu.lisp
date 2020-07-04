@@ -128,36 +128,156 @@
   (list
    ('lawful
     ('smart
-     ('normie)
-     ('active)
-     ('funny)
-     ('loud))
+     ('normie
+      "(´◡‿|◡`)" ;; forward
+      "(´◡/‿◡` )" ;; left-facing
+      "( ´◡‿\◡`)" ;; right-facing
+      "(>´◡‿\◡`)>" ;; right-moving
+      "<(´◡/‿◡`<)");; left-moving
+     ('active
+      "(° ͜ʖ °)" ;; forward
+      "(° c͜ ° )" ;; left-facing
+      "( ° ͜ʖ °)" ;; right-facing
+      "(☞ ° ͜ʖ °)☞" ;; right-moving
+      "☜( ° c͜ °☜)");; left-moving
+     ('funny
+      "(๑ÒωÓ๑)" ;; forward
+      "(๑ÒωÓ๑ )" ;; left-facing
+      "( ๑ÒωÓ๑)" ;; right-facing
+      "( >๑ÒωÓ๑)>" ;; right-moving
+      "<(๑ÒωÓ๑< )");; left-moving
+     ('loud
+      "(▼∀▼)" ;; forward
+      "(▼∀▼ )" ;; left-facing
+      "( ▼∀▼)" ;; right-facing
+      "( >▼∀▼)>" ;; right-moving
+      "<(▼∀▼< )"));; left-moving
     ('creative
-     ('normie)
-     ('active)
-     ('funny)
-     ('loud))
+     ('normie
+      "@(･ω･)@" ;; forward      
+      "@(･ω･o )@" ;; left-facing
+      "@( o･ω･)@" ;; right-facing
+      "@( >o･ω･)@>" ;; right-moving
+      "<@(･ω･o< )@");; left-moving
+    ('active
+     "(ˆ⌣ˆ)" ;; forward     
+     "(ˆ⌣ˆc)" ;; left-facing     
+     "(ↄˆ⌣ˆ)" ;; right-facing     
+     "(>ↄˆ⌣ˆ)>" ;; right-moving     
+     "<(ˆ⌣ˆc<)");; left-moving    
+    ('funny
+     "(≧∀≦)" ;; forward
+      "(≧∀≦ )" ;; left-facing
+      "( ≧∀≦)" ;; right-facing
+      "(/≧∀≦)/" ;; right-moving
+      "\(≧∀≦\)");; left-moving
+    ('loud
+     "(。々°)" ;; forward
+      "(。々° )" ;; left-facing
+      "( 。々°)" ;; right-facing
+      "(> 。々°)>" ;; right-moving
+      "<(。々° <)"));; left-moving
     ('social
-     ('normie)
-     ('active)
-     ('funny)
-     ('loud)))
+     ('normie
+      "(◕ヮ◕)" ;; forward
+      "(◕ヮ◕ )" ;; left-facing
+      "( ◕ヮ◕)" ;; right-facing
+      "(/◕ヮ◕)/" ;; right-moving
+      "\(◕ヮ◕\)");; left-moving
+     ('active
+      "(•̀◡•́)" ;; forward
+      "✧(-◡•́｡)" ;; left-facing
+      "(｡•̀◡-)✧" ;; right-facing
+      "(> ｡•̀◡-)>✧" ;; right-moving
+      "✧<(-◡•́｡ <)");; left-moving
+     ('funny
+      "(●ᴥ●)" ;; forward
+      "(●ᴥ● )" ;; left-facing
+      "( ●ᴥ●)" ;; right-facing
+      "(> ●ᴥ●)>" ;; right-moving
+      "<(●ᴥ● <)");; left-moving
+     ('loud
+      "(≧∇≦)" ;; forward
+      "(≧∇≦ )" ;; left-facing
+      "( ≧∇≦)" ;; right-facing
+      "(~ ≧∇≦)~" ;; right-moving
+      "~(≧∇≦ ~)")));; left-moving
    ('chaotic
     ('smart
-     ('normie)
-     ('active)
-     ('funny)
-     ('loud))
+     ('normie
+      "(▼皿▼)" ;; forward
+      "(▼皿▼｡ )" ;; left-facing
+      "( ｡▼皿▼)" ;; right-facing
+      "(- ｡▼皿▼)-" ;; right-moving
+      "-(▼皿▼｡ -)");; left-moving
+     ('active
+      "(ʘ∀ʘ)" ;; forward
+      "(๑ʘ∀ʘ )" ;; left-facing
+      "( ๑ʘ∀ʘ)" ;; right-facing
+      "ε=┌(๑ʘ∀ʘ)┘" ;; right-moving
+      "┗(ʘ∀ʘ๑)┐┘=3");; left-moving
+     ('funny
+      "(´□｀)" ;; forward
+      "(´□｀ )" ;; left-facing
+      "( ´□｀)" ;; right-facing
+      "(┘´□｀)┘" ;; right-moving
+      "L(´□｀L)");; left-moving
+     ('loud
+      "(｀▽´)" ;; forward
+      "(｀▽´ )" ;; left-facing
+      "( ｀▽´)" ;; right-facing
+      "(o ｀▽´ )oΨ" ;; right-moving
+      "Ψo(｀▽´ o)"));; left-moving
     ('creative
-     ('normie)
-     ('active)
-     ('funny)
-     ('loud))
+     ('normie
+      "(*Φ ω Φ*)" ;; forward
+      "(*Φ ω Φ* )" ;; left-facing
+      "( *Φ ω Φ*)" ;; right-facing
+      "(∿*Φ ω Φ*)∿" ;; right-moving
+      "∿(*Φ ω Φ*∿)");; left-moving
+     ('active
+      "(ì_í)" ;; forward
+      "(ì_í )" ;; left-facing
+      "( ì_í)" ;; right-facing
+      "(ó ì_í)=ó" ;; right-moving
+      "ò=(ì_í ò)");; left-moving
+     ('funny
+      "(⊙_◎)" ;; forward
+      "(⊙_◎ )" ;; left-facing
+      "( ⊙_◎)" ;; right-facing
+      "(> ⊙_◎)>" ;; right-moving
+      "<(⊙_◎ <)");; left-moving
+     ('loud
+      "(ﾟ Д ﾟ)" ;; forward
+      "(ﾟ Д ﾟ )" ;; left-facing
+      "( ﾟ Д ﾟ)" ;; right-facing
+      "(> ﾟ Д ﾟ)>" ;; right-moving
+      "<(ﾟ Д ﾟ <)"));; left-moving
     ('social
-     ('normie)
-     ('active)
-     ('funny)
-     ('loud)))))
+     ('normie
+      "(⌐■_■¬)" ;; forward
+       "(■_■¬ )" ;; left-facing
+       "( ⌐■_■)" ;; right-facing
+       "(>⌐■_■)>" ;; right-moving
+       "<(■_■¬<)");; left-moving
+     ('active
+      "(Φ‿Φ)" ;; forward
+      "(Φ‿Φ )" ;; left-facing
+      "( Φ‿Φ)" ;; right-facing
+      "Ψ( ;Φ‿Φ)_↑" ;; right-moving
+      "↑_(Φ‿Φ;)Ψ");; left-moving
+     ('funny
+      "('ڡ')" ;; forward
+      "('ڡ' )" ;; left-facing
+      "( 'ڡ')" ;; right-facing
+      "(ง 'ڡ')ง" ;; right-moving
+      "ლ('ڡ'ლ)");; left-moving
+     ('loud
+      "＼(´◓ Д ◔)／" ;; forward
+      "(´◓ Д ◔ )" ;; left-facing
+      "( ´◔ Д ◓)" ;; right-facing
+      "(／ ´◔ Д ◓)／" ;; right-moving
+      "＼(´◓ Д ◔ ＼)")))));; left-moving
 
 
 ;;; The following are kaomoji pet graphics that I still need to implement. u_u
