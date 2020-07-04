@@ -30,21 +30,20 @@
 |                                         |                |                |               |                    |
 | ADULT CHAOTIC SMART                     | (｡▼皿▼)        | ε=ε=ε=┌(๑ʘ∀ʘ)┘ | L(´□｀L)      | (o ｀▽´ )oΨ        |
 | * Name:                                 | "kabuto-chan"  | "hashiru-chan" | "fukou-chan"  | "noroi-chan"       |
-| * Max Age Until Evolution:              |                |                |               |                    |
-| * Minimum Smart Skill Needed:           |                |                |               |                    |
+| * Max Age Until Evolution:              | 20 days        | 15 days        | 5 days        | 20 days            |
+| * Minimum Smart Skill Needed:           | 100            | 50             | 12            | 100                |
 |                                         |                |                |               |                    |
 |                                         |                |                |               |                    |
 | ADULT CHAOTIC CREATIVE                  | ∿(*Φ ω Φ*∿)    | ò=(ì_í ò)      | (⊙_◎)         | ( ﾟ Д ﾟ )          |
 | * Name:                                 | "neko-chan"    | "osu-chan"     | "yotta-chan"  | "osoroshii-chan"   |
-| * Max Age Until Evolution:              |                |                |               |                    |
-| * Minimum Smart Creative Needed:        |                |                |               |                    |
-| * Max Neglect Points For Secret Unlock  |                |                |               |                    |
+| * Max Age Until Evolution:              | 30 days        | 30 days        | 5 days        | 15 days            |
+| * Minimum Creative Skill Needed:        | 100            | 100            | 12            | 50                 |
+|                                         |                |                |               |                    |
 |                                         |                |                |               |                    |
 | ADULT CHAOTIC SOCIAL                    | (■_■¬ )        | ↑_(ΦwΦ;)Ψ      | ლ('ڡ'ლ)       | ＼(´◓ Д ◔)／       |
-| * Name:                                 | "kakoii-chan"  | "akuma-chan"   | "dorobo-chan" | "sakebu-chan"      |
-| * Max Age Until Evolution:              |                |                |               |                    |
-| * Minimum Chaotic Skill Needed:         |                |                |               |                    |
-| * Max Neglect Points For Secret Unlock  |                |                |               |                    |
+| * Name:                                 | "kakkoii-chan" | "akuma-chan"   | "dorobo-chan" | "sakebu-chan"      |
+| * Max Age Until Evolution:              | 30 days        | 60 days        | 30 days       | 30 days            |
+| * Minimum Social Skill Needed:          | 100            | 200            | 100           | 100                |
 |                                         |                |                |               |                    |
 
 
