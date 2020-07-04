@@ -280,23 +280,14 @@
       "＼(´◓ Д ◔ ＼)")))));; left-moving
 
 
-;;; The following are kaomoji pet graphics that I still need to implement. u_u
-
 
 #|
 
-
 poop:
-
 cξ~~
 
-********************
-***** ëgg: *********
-********************
 
- ₍.₎ 
-
-
+sleeping animations:
 
 (ー。ー) zzz
 
@@ -306,9 +297,7 @@ cξ~~
 
 (_ _)..ooOO
 
-
-
-
+secret pet evolution characters:
 
 (⁎ ⁍̴̛ᴗ⁍̴̛ ⁎)
 |#
@@ -319,34 +308,61 @@ cξ~~
 ;;; ******************************************************************************
 
 ;;; Here we define the global variables. Each of the variables which
-;;; keep track of your pet's state range from 0 to 100. Some variable
-;;; states you need to be as close to 0 as you can, and some you want
-;;; to be as close to 100 as you can.
+;;; keep track of your pet's state range from 0 to 5.
 
-;;; So, for instance, 100 hunger represents a fully negative affect on
-;;; your pet's state, whereas for happiness and entertainment, 100 is
-;;; a /good/ thing, and you want that!
+;;; This is the happiness state. When it reaches zero, the pet is
+;;; fully upset, and at maximum displeasure, and is the opposite of
+;;; happy with you.
 
-;;; This one below ranges from 0 to 100. It counts up or down, but
-;;; when it reaches zero, the pet is fully upset, and at maximum
-;;; displeasure, and is the opposite of happy with you.
+;;; When the happines state reaches zero, the programme will trigger
+;;; an alert (*attention-required*) to the user.
 
-(defparameter *happiness* 75)
+(defparameter *happiness* 5)
+(defparameter *happiness-secret* 2)
 
 ;;; This variable is the amount of hunger that the pet is
-;;; experiencing.  When the value reaches 100, the pet is absolutely
+;;; experiencing.  When the value reaches zero, the pet is absolutely
 ;;; famished. When it reaches this value, the happiness of your pet
 ;;; starts to decrease.
 
-(defparameter *hunger* 0)
+;;; When the hunger state reaches zero, the programme will trigger an
+;;; alert (*attention-required*) to the user.
 
-;;; This is the variable that increases when you play with your pet.
-;;; When you do interesting things with your pet, it increases this
-;;; value, and when it reaches 100, it's fully tweakin' out happy,
-;;; man!! This will positively affect your pet's happiness! The
-;;; happiness variable will start to count upwards!
+(defparameter *hunger* 5)
+(defparameter *hunger-secret 2)
 
-(defparameter *entertainment* 100)
+;;; This is the poop state variable. This ranges from 0 to 4.
+
+;;; When this variable reaches 4, an alert (*attention-required*) will
+;;; be triggered to the user.
+
+(defparameter *poop* 0)
+
+;;; This is the variable that keeps track of the pet's "need for
+;;; attention". When either, or both of the happiness and hunger
+;;; meters reaches zero, this will trigger this variable to become
+;;; 'T'. This will also let out a sound to let the user know that the
+;;; pet is 'crying' or 'singing out' for attention because it is
+;;; hungry or sad, etc.
+
+;;; The user will have 15 minutes to respond to the pet, otherwise the
+;;; pet will accrue a 'neglect point'. This will have an effect on the
+;;; kind of emoticon that the pet will evolve into.
+
+(defparameter *attention-required* nil)
+
+;;; This keeps track of how many times the user has failed to respond
+;;; within 15 minutes to the pet's demand for attention. This has a
+;;; direct effect on what kind of character the pet will eventually be
+;;; able to evolve into. This counter variable will not be visible to
+;;; the user.
+
+(defparameter *neglect-points* 0)
+
+;;; This is the sickness state variable. It keeps track of whether the
+;;; pet is ill. I can be either T or NIL.
+
+(defparameter *ill* nil)
 
 ;;; This global variable below keeps track of the state of the
 ;;; keyboard. When a key is pressed, the value is stored in to this
@@ -375,35 +391,22 @@ cξ~~
 
 (defparameter *rng-move* 0)
 
-;;; The code for this next variable, below, has not been implemented
-;;; yet. It keeps track of whether your pet is in 'normal' mode, or
-;;; one of the 'special' modes. Normal mode for your pet just has
-;;; basic animations, but 'special' mode allows your pet to look
-;;; 'cool', 'smart', or like a cat, etc.
+;;; This variable keeps track of where the pet is in its life
+;;; cycle. The states which this variable can be are: (i) egg; (ii)
+;;; baby; (iii) child; (iv) teen; (v) adult; (vi) elder; or (vii)
+;;; special. Special corresponds to a 'secret' pet evolution that the
+;;; player can achieve if they take very good care of their pet.
 
-(defparameter *state* 'normal)
+(defparameter *life-cycle* 'egg)
 
 ;;; This variable keeps track of the list of animation frames that
 ;;; display what emotion and mode your pet is in, uwu.
 
-(defparameter *pet-appearance* uwu-gfx)
+(defparameter *pet-appearance* *egg-gfx*)
 
 ;;; ******************************************************************************
 ;;; *                                   GAME LOGICK                              *
 ;;; ******************************************************************************
-
-;;; A lot of the data structure that I have constructed here for the
-;;; operation of the game is derived from what I understand the Atari
-;;; 2600 to require. This is because it's the only game programming I
-;;; have ever done. I think what this means is that this game is not
-;;; really following proper functional programming.
-
-;;; We will be mutating quite a bit of state, but not a /lot/ of
-;;; state, because I tend to only need very small amounts of RAM in
-;;; order to program - the least number of state mutated works best
-;;; for Atari 2600, for very good reason.
-
-;;; ****************************************************************
 
 ;;; This is a simple utility function that enables me to clear the
 ;;; screen so that a new frame of animation can be drawn.
