@@ -303,9 +303,9 @@ secret pet evolution characters:
 |#
 
 
-;;; ******************************************************************************
-;;; * DEFINITION OF THE VARIABLES                                                *
-;;; ******************************************************************************
+;;; *********************************
+;;; ** DEFINITION OF THE VARIABLES **
+;;; *********************************
 
 ;;; Here we define the global variables. Each of the variables which
 ;;; keep track of your pet's state range from 0 to 5.
@@ -357,12 +357,52 @@ secret pet evolution characters:
 ;;; able to evolve into. This counter variable will not be visible to
 ;;; the user.
 
+;;; Neglect points are not reset after an evolution: they keep track
+;;; of the overall history of your pet, throughout its life.
+
 (defparameter *neglect-points* 0)
 
 ;;; This is the sickness state variable. It keeps track of whether the
-;;; pet is ill. I can be either T or NIL.
+;;; pet is ill. I can be either T or NIL. Same as above---failing to
+;;; cure a pet's sickness within 15 minutes of being alerted results
+;;; in a neglect point.
 
 (defparameter *ill* nil)
+
+;;; This variable keeps track of where the pet is in its life
+;;; cycle. The states which this variable can be are: (i) egg; (ii)
+;;; baby; (iii) child; (iv) teen; (v) adult; (vi) elder; or (vii)
+;;; special. Special corresponds to a 'secret' pet evolution that the
+;;; player can achieve if they take very good care of their pet.
+
+(defparameter *life-cycle* 'egg)
+
+;;; This variable keeps track of how old the pet is overall, in days.
+
+(defparameter *age-global* 0)
+
+;;; This variable keeps track of how long a pet has been in its
+;;; current state of evolution.
+
+(defparameter *age-current-evolution* 0)
+
+;;; These three variables keep track of the number of wins you have
+;;; made in the respective minigames. Over the lifespan of the pet
+;;; from childhood to the end of the pet's teenage life, the relative
+;;; magnitude of each of these variables, compared to the others,
+;;; determines whether your pet will become a particular evolution.
+
+;;; There are, however, for some evolutions, a minimum number of skill
+;;; points required to achieve that evolution. Otherwise, the pet will
+;;; default to the next highest skill to determine its evolution.
+
+(defparameter *skill-smart* 0)
+(defparameter *skill-creative* 0)
+(defparameter *skill-social* 0)
+
+;;; *************************
+;;; ** AUXILIARY VARIABLES **
+;;; *************************
 
 ;;; This global variable below keeps track of the state of the
 ;;; keyboard. When a key is pressed, the value is stored in to this
@@ -390,14 +430,6 @@ secret pet evolution characters:
 ;;; left, they would, of course, start facing left, etc.
 
 (defparameter *rng-move* 0)
-
-;;; This variable keeps track of where the pet is in its life
-;;; cycle. The states which this variable can be are: (i) egg; (ii)
-;;; baby; (iii) child; (iv) teen; (v) adult; (vi) elder; or (vii)
-;;; special. Special corresponds to a 'secret' pet evolution that the
-;;; player can achieve if they take very good care of their pet.
-
-(defparameter *life-cycle* 'egg)
 
 ;;; This variable keeps track of the list of animation frames that
 ;;; display what emotion and mode your pet is in, uwu.
