@@ -65,11 +65,11 @@
      "☆( >。v °)>"
      "<(。v °< )☆")
    ('loud
-     "( ＾▽＾ )"
+     "(＾▽＾)"
      "(＾▽＾ )"
      "( ＾▽＾)"
-     "( >＾▽＾)>"
-     "<(＾▽＾< )")))
+     "(>＾▽＾)>"
+     "<(＾▽＾<)")))
 
 (defparameter *teen-gfx*
   (list
@@ -87,42 +87,77 @@
      "(> o w o)>" ;; right-moving
      "<( o w o <)") ;; left-moving
     ('funny
-     "" ;; forward
-     "" ;; left-facing
-     "" ;; right-facing
-     "" ;; right-moving
-     "") ;; left-moving
+     "(•˘v˘•)" ;; forward
+     "(•˘v˘n )" ;; left-facing
+     "( ˘v˘•)" ;; right-facing
+     "(n˘v˘•)¬" ;; right-moving
+     "~(•˘v˘n)") ;; left-moving
     ('loud
-     "" ;; forward
-     "" ;; left-facing
-     "" ;; right-facing
-     "" ;; right-moving
-     "")) ;; left-moving
+     "( *°▽°* )" ;; forward
+     "(*°▽°* )" ;; left-facing
+     "( *°▽°*)" ;; right-facing
+     "(>*°▽°*)>" ;; right-moving
+     "<(*°▽°*<)")) ;; left-moving
    ('chaotic
     ('normie
-     "" ;; forward
-     "" ;; left-facing
-     "" ;; right-facing
-     "" ;; right-moving
-     "") ;; left-moving
+     "(>.<)" ;; forward
+     "(<.<)" ;; left-facing
+     "(>.>)" ;; right-facing
+     "(>.>)//" ;; right-moving
+     "\\(<.<)") ;; left-moving
     ('active
-     "" ;; forward
-     "" ;; left-facing
-     "" ;; right-facing
-     "" ;; right-moving
-     "") ;; left-moving
+     " (•̀_•́)" ;; forward
+     " (•̀_•́ )" ;; left-facing
+     " ( •̀_•́)" ;; right-facing
+     " (ง •̀_•́)ง" ;; right-moving
+     " ლ(•̀_•́ლ)") ;; left-moving
     ('funny
-     "" ;; forward
-     "" ;; left-facing
-     "" ;; right-facing
-     "" ;; right-moving
-     "") ;; left-moving
+     " ¯\(°_o)/¯" ;; forward
+     "(°_o )" ;; left-facing
+     "( o_°)" ;; right-facing
+     " (/¯o_°)/¯" ;; right-moving
+     " ¯\(°_o¯\)") ;; left-moving
     ('loud
-     "" ;; forward
-     "" ;; left-facing
-     "" ;; right-facing
-     "" ;; right-moving
-     "")))) ;; left-moving
+     "(°□°)" ;; forward
+     "(°□° )" ;; left-facing
+     "( °□°)" ;; right-facing
+     "(╯°□°)╯" ;; right-moving
+     "╰(°□°╰)")))) ;; left-moving 
+
+(defparameter *adult-gfx*
+  (list
+   ('lawful
+    ('smart
+     ('normie)
+     ('active)
+     ('funny)
+     ('loud))
+    ('creative
+     ('normie)
+     ('active)
+     ('funny)
+     ('loud))
+    ('social
+     ('normie)
+     ('active)
+     ('funny)
+     ('loud)))
+   ('chaotic
+    ('smart
+     ('normie)
+     ('active)
+     ('funny)
+     ('loud))
+    ('creative
+     ('normie)
+     ('active)
+     ('funny)
+     ('loud))
+    ('social
+     ('normie)
+     ('active)
+     ('funny)
+     ('loud)))))
 
 
 ;;; The following are kaomoji pet graphics that I still need to implement. u_u
