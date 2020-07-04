@@ -28,14 +28,14 @@
 
 (defparameter *babby-gfx*
   (list
-   '(lawful
+   ('lawful
      "~:0" ;; forward
      "o:~" ;; left-facing
      "~:o" ;; right-facing
      "~:v" ;; right-moving
      "c:~" ;; left-moving
      )
-   '(chaotic
+   ('chaotic
      "( .◎. )" ;; forward
      "(｡◎｡  )" ;; left-facing
      "(  ｡◎｡)" ;; right-facing
@@ -46,150 +46,84 @@
 
 (defparameter *child-gfx*
   (list
-   '(normie
+   ('normie
      "(✿^‿^✿)"
      "(^‿^✿ )"
      "( ✿^‿^)"
      "(>✿^‿^)>"
      "<(^‿^✿<)")
-   '(active
+   ('active
      "( o v o )"
      "(o v o )"
      "( o v o)"
      "( ┘o v o)┘"
      "┌(o v o┌ )")
-   '(funny
+   ('funny
      "( 。v ° )"
      "(。v ° )☆"
      "☆( 。v °)"
      "☆( >。v °)>"
      "<(。v °< )☆")
-   '(loud
+   ('loud
      "( ＾▽＾ )"
      "(＾▽＾ )"
      "( ＾▽＾)"
      "( >＾▽＾)>"
      "<(＾▽＾< )")))
 
+(defparameter *teen-gfx*
+  (list
+   ('lawful
+    ('normie
+     "" ;; forward
+     "" ;; left-facing
+     "" ;; right-facing
+     "" ;; right-moving
+     "") ;; left-moving
+    ('active
+     "" ;; forward
+     "" ;; left-facing
+     "" ;; right-facing
+     "" ;; right-moving
+     "") ;; left-moving
+    ('funny
+     "" ;; forward
+     "" ;; left-facing
+     "" ;; right-facing
+     "" ;; right-moving
+     "") ;; left-moving
+    ('loud
+     "" ;; forward
+     "" ;; left-facing
+     "" ;; right-facing
+     "" ;; right-moving
+     "")) ;; left-moving
+   ('chaotic
+    ('normie
+     "" ;; forward
+     "" ;; left-facing
+     "" ;; right-facing
+     "" ;; right-moving
+     "") ;; left-moving
+    ('active
+     "" ;; forward
+     "" ;; left-facing
+     "" ;; right-facing
+     "" ;; right-moving
+     "") ;; left-moving
+    ('funny
+     "" ;; forward
+     "" ;; left-facing
+     "" ;; right-facing
+     "" ;; right-moving
+     "") ;; left-moving
+    ('loud
+     "" ;; forward
+     "" ;; left-facing
+     "" ;; right-facing
+     "" ;; right-moving
+     "")))) ;; left-moving
 
-********************
-***** child ********
-********************
-
-
-normie:  (✿^‿^)
-
-active: ┌(o v o)┘
-
-funny: (。v °)☆
-
-loud: (＾▽＾)
-
-
-(setf uwu-gfx
-      (list
-       "( u w u )"
-       "(u w u )"
-       "( u w u)"
-       "(> u w u)>"
-       "<(u w u <)"
-       ))
-
-(setf owo-gfx
-      (list
-       "( o w o )" 
-       "(o w o )"
-       "( o w o)"
-       "(> o w o)>"
-       "<(o w o <)"
-       ))
-
-(setf birb-face
-      (list
-       "( o v o )"
-       "(o v o )"
-       "( o v o)"
-       "(> o v v)>"
-       "<(o v o <)"
-       ))
-
-(setf uwu-mouth-gfx
-      (list
-       "( . o . )"
-       "( . - . )"
-       ))
-
-(setf magic-friendship-gfx
-      (list
-       "(ﾉ◕ヮ◕)ﾉ*"
-       "(/◕ヮ◕)/ :"
-       "(-◕ヮ◕)-  ・"
-       "(/◕ヮ◕)/   ﾟ"
-       "(ﾉ◕ヮ◕)ﾉ    ✧"
-       ))
-
-(setf cool-dude-gfx
-      (list
-       "(⌐■_■¬)"
-       "(■_■¬ )"
-       "( ⌐■_■)"
-       "(>⌐■_■)>"
-       "<(■_■¬<)"
-       ))
-
-(setf cat-gfx
-      (list
-       "( *Φ ω Φ* )"
-       "(*Φ ω Φ* )"
-       "( *Φ ω Φ*)"
-       "(∿*Φ ω Φ*)∿"
-       "∿(*Φ ω Φ*∿)"
-       ))
-
-(setf horrified-gfx
-      (list
-       "( ﾟ Д ﾟ )"
-       "(ﾟ Д ﾟ )"
-       "( ﾟ Д ﾟ)"
-       "(> ﾟ Д ﾟ)>"
-       "<(ﾟ Д ﾟ <)"
-       ))
-
-(setf random-gfx
-      (list
-       "~( ° ○ ° )~"
-       "(° ○ ° )"
-       "( ° ○ °)"
-       "(∿ °○°)∿"
-       "∿(°○° ∿)"
-       ))
-
-(setf shocked-gfx
-      (list
-       "( ;◎ _ ◎；)"
-       "(◎ _ ◎； )"
-       "( ;◎ _ ◎)"
-       "(~~ ;◎_◎)~~"
-       "~~(◎_◎； ~~)"
-       ))
-
-(setf run-away-gfx
-      (list
-       "( ┳ _ ┳ )"
-       "(┳━ _ ┳━)"
-       "(━┳ _ ━┳)"
-       "(_ ━┳ _ ━┳)_"
-       "_(┳━ _ ┳━ _)"
-       ))
-
-(setf smart-gfx
-      (list
-       "( u _| u )"
-       "(u/_u )"
-       "( u_\u)"
-       "(∋ u_\u)∋"
-       "∈(u/_u ∈)"
-       ))
 
 ;;; The following are kaomoji pet graphics that I still need to implement. u_u
 
