@@ -75,17 +75,17 @@
   (list
    ('lawful
     ('normie
-     "" ;; forward
-     "" ;; left-facing
-     "" ;; right-facing
-     "" ;; right-moving
-     "") ;; left-moving
+     "(u w u)" ;; forward
+     "(u w u )" ;; left-facing
+     "( u w u)" ;; right-facing
+     "(> u w u)>" ;; right-moving
+     "<( u w u <)") ;; left-moving
     ('active
-     "" ;; forward
-     "" ;; left-facing
-     "" ;; right-facing
-     "" ;; right-moving
-     "") ;; left-moving
+     "(o w o)" ;; forward
+     "(o w o )" ;; left-facing
+     "( o w o)" ;; right-facing
+     "(> o w o)>" ;; right-moving
+     "<( o w o <)") ;; left-moving
     ('funny
      "" ;; forward
      "" ;; left-facing
