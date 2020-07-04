@@ -16,6 +16,35 @@
 
 |#
 
+(defparameter *egg-gfx*
+  (list
+   "."
+   "｡"
+   "ₒ"
+   "o"
+   "O"))
+
+;;; o O °ﾟº Ó Õ Ø ô Ơ ơ Өө₀.
+
+(defparameter *babby-gfx*
+  (list '(lawful
+	  "~:0" ;; forward
+	  "o:~" ;; left-facing
+	  "~:o" ;; right-facing
+	  "~:v" ;; right-moving
+	  "c:~" ;; left-moving
+	  )
+	'(chaotic
+	  "( .◎. )" ;; forward
+	  "(｡◎｡  )" ;; left-facing
+	  "(  ｡◎｡)" ;; right-facing
+	  "(_ ｡◎｡)_" ;; right-moving
+	  "_(｡◎｡ _)" ;; left-moving
+	  )))
+
+
+
+
 (setf uwu-gfx
       (list
        "( u w u )"
@@ -27,7 +56,7 @@
 
 (setf owo-gfx
       (list
-       "( o w o )"
+       "( o w o )" 
        "(o w o )"
        "( o w o)"
        "(> o w o)>"
@@ -135,45 +164,9 @@ cξ~~
 ***** ëgg: *********
 ********************
 
-o O °ﾟº Ó Õ Ø ô Ơ ơ Өө₀.｡ₒ ₍.₎ 
-
-********************
-***** babby: *******
-********************
-
-#### lawful: ######
-
-~¦o zzz
-~¦| zzz
-~:o
-~:0
-~:v
-~:V
-~:U
-
-c:~
-c;~
-0:~
-^:~
+ ₍.₎ 
 
 
-ő
-
-##### chaotic ######
-
-( ' , ' )
-
-(｡ﾟ◎ﾟ｡)
-
-( ｡◎｡ )
-( ﾟ◎ﾟ )
-( .◎. )
-( `◎` )
-( >◎< )
-( o◎o )
-( ･_･ )
-( '△' )
-(’∽’)
 
 (ー。ー) zzz
 
