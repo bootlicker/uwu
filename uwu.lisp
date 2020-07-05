@@ -16,7 +16,7 @@
 
 |#
 
-(defparameter *egg-gfx*
+(defparameter *egg-data*
   (list
    "."
    "｡"
@@ -26,7 +26,7 @@
 
 ;;; o O °ﾟº Ó Õ Ø ô Ơ ơ Өө₀.
 
-(defparameter *babby-gfx*
+(defparameter *babby-data*
   (list
    ('lawful
      "~:0" ;; forward
@@ -44,7 +44,7 @@
      )))
 
 
-(defparameter *child-gfx*
+(defparameter *child-data*
   (list
    ('normie
      "(✿^‿^✿)"
@@ -165,35 +165,44 @@
        "(°□° )" ;; left-facing       
        "( °□°)" ;; right-facing       
        "(╯°□°)╯" ;; right-moving       
-       "╰(°□°╰)"))))) ;; left-moving
+       "╰(°□°╰)")))))) ;; left-moving
   
+#|
 
-(defparameter *adult-gfx*
-  (list
-   ('lawful
+(care-alignment
+ (skill-alignment
+  (data
+   (data-fields))
+  (gfx "gfx-fields"))
+  
+|#
 
-    ('smart
-     ('data
-      ('name "yoshoku-tan")
-      ('max-age 15)
-      ('min-skill 50)
-      ('max-neglect nil))
-     ('gfx      
-      ('normie       
+(defparameter *adult-data*
+  '(lawful
+    
+    (smart     
+           
+     (normie      
+      (data       
+       (name "yoshoku-tan")       
+       (max-age 15)       
+       (min-skill 50)       
+       (max-neglect nil))      
+      (gfx       
        "(´◡‿|◡`)" ;; forward       
        "(´◡/‿◡` )" ;; left-facing       
        "( ´◡‿\◡`)" ;; right-facing       
        "(>´◡‿\◡`)>" ;; right-moving       
-       "<(´◡/‿◡`<)"));; left-moving
+       "<(´◡/‿◡`<)"));; left-moving     
      
      
-     ('active
-      ('data
-       ('name "lenny-tan")       
-       ('max-age 20)       
-       ('min-skill 100)       
-       ('max-neglect 40))      
-      ('gfx       
+     (active
+      (data
+       (name "lenny-tan")       
+       (max-age 20)       
+       (min-skill 100)       
+       (max-neglect 40))      
+      (gfx       
        "(° ͜ʖ °)" ;; forward       
        "(° c͜ ° )" ;; left-facing       
        "( ° ͜ʖ °)" ;; right-facing       
@@ -201,13 +210,13 @@
        "☜( ° c͜ °☜)"));; left-moving
      
      
-     ('funny
-      ('data
-       ('name "otaku-tan")       
-       ('max-age 10)       
-       ('min-skill 25)       
-       ('max-neglect nil))      
-      ('gfx       
+     (funny
+      (data
+       (name "otaku-tan")       
+       (max-age 10)       
+       (min-skill 25)       
+       (max-neglect nil))      
+      (gfx       
        "(๑ÒωÓ๑)" ;; forward       
        "(๑ÒωÓ๑ )" ;; left-facing       
        "( ๑ÒωÓ๑)" ;; right-facing       
@@ -215,27 +224,27 @@
        "<(๑ÒωÓ๑< )"));; left-moving
      
      
-     ('loud
-      ('data
-       ('name "shittakaburi-tan")       
-       ('max-age 5)       
-       ('min-skill 12)       
-       ('max-neglect nil))      
-     ('gfx
+     (loud
+      (data
+       (name "shittakaburi-tan")       
+       (max-age 5)       
+       (min-skill 12)       
+       (max-neglect nil))      
+     (gfx
       "(▼∀▼)" ;; forward
       "(▼∀▼ )" ;; left-facing      
       "( ▼∀▼)" ;; right-facing
       "( >▼∀▼)>" ;; right-moving
       "<(▼∀▼< )"));; left-moving
      
-    ('creative
-     ('normie
-      ('data       
-       ('name "saru-tan")       
-       ('max-age 10)       
-       ('min-skill 25)       
-       ('max-neglect nil))      
-      ('gfx       
+    (creative
+     (normie
+      (data       
+       (name "saru-tan")       
+       (max-age 10)       
+       (min-skill 25)       
+       (max-neglect nil))      
+      (gfx       
        "@(･ω･)@" ;; forward       
        "@(･ω･o )@" ;; left-facing       
        "@( o･ω･)@" ;; right-facing       
@@ -243,39 +252,39 @@
        "<@(･ω･o< )@"));; left-moving
      
      
-     ('active
-      ('data       
-       ('name "ureshii-tan")       
-       ('max-age 5)       
-       ('min-skill 12)       
-       ('max-neglect nil))      
-      ('gfx       
+     (active
+      (data       
+       (name "ureshii-tan")       
+       (max-age 5)       
+       (min-skill 12)       
+       (max-neglect nil))      
+      (gfx       
        "(ˆ⌣ˆ)" ;; forward       
        "(ˆ⌣ˆc)" ;; left-facing       
        "(ↄˆ⌣ˆ)" ;; right-facing       
        "(>ↄˆ⌣ˆ)>" ;; right-moving       
        "<(ˆ⌣ˆc<)"));; left-moving
           
-     ('funny
-      ('data       
-       ('name "shifuku-tan")       
-       ('max-age 20)       
-       ('min-skill 50)       
-       ('max-neglect nil))      
-      ('gfx
+     (funny
+      (data       
+       (name "shifuku-tan")       
+       (max-age 20)       
+       (min-skill 50)       
+       (max-neglect nil))      
+      (gfx
        "(≧∀≦)" ;; forward       
        "(≧∀≦ )" ;; left-facing       
        "( ≧∀≦)" ;; right-facing       
        "(/≧∀≦)/" ;; right-moving       
        "\(≧∀≦\)"));; left-moving
           
-     ('loud
-      ('data
-       ('name "miotosu-tan")       
-       ('max-age 30)       
-       ('min-skill 100)
-       ('max-neglect 72))
-      ('gfx       
+     (loud
+      (data
+       (name "miotosu-tan")       
+       (max-age 30)       
+       (min-skill 100)
+       (max-neglect 72))
+      (gfx       
        "(。々°)" ;; forward       
        "(。々° )" ;; left-facing       
        "( 。々°)" ;; right-facing       
@@ -283,169 +292,169 @@
        "<(。々° <)")));; left-moving
     
     
-    ('social
+    (social
      
-     ('normie
-      ('data
-       ('name "yorokobi-tan")       
-       ('max-age 30)       
-       ('min-skill 100)       
-      ('max-neglect nil))
-      ('gfx       
+     (normie
+      (data
+       (name "yorokobi-tan")       
+       (max-age 30)       
+       (min-skill 100)       
+      (max-neglect nil))
+      (gfx       
        "(◕ヮ◕)" ;; forward       
        "(◕ヮ◕ )" ;; left-facing       
        "( ◕ヮ◕)" ;; right-facing       
        "(/◕ヮ◕)/" ;; right-moving
        "\(◕ヮ◕\)"));; left-moving
       
-     ('active
-      ('data       
-       ('name "keihaku-tan")
-       ('max-age 60)              
-       ('min-skill 200)       
-       ('max-neglect 144))
-      ('gfx       
+     (active
+      (data       
+       (name "keihaku-tan")
+       (max-age 60)              
+       (min-skill 200)       
+       (max-neglect 144))
+      (gfx       
        "(•̀◡•́)"	     ;; forward
        "✧(-◡•́｡)"     ;; left-facing
        "(｡•̀◡-)✧"     ;; right-facing
        "(> ｡•̀◡-)>✧"  ;; right-moving
        "✧<(-◡•́｡ <)")) ;; left-moving
      
-     ('funny
-      ('data
-       ('name "inu-tan")
-       ('max-age 20)
-       ('min-skill 50)
-       ('max-neglect nil))
-      ('gfx
+     (funny
+      (data
+       (name "inu-tan")
+       (max-age 20)
+       (min-skill 50)
+       (max-neglect nil))
+      (gfx
        "(●ᴥ●)"	   ;; forward
        "(●ᴥ● )"	   ;; left-facing
        "( ●ᴥ●)"	   ;; right-facing
        "(> ●ᴥ●)>"  ;; right-moving
        "<(●ᴥ● <)")) ;; left-moving
      
-     ('loud
-      ('data
-      ('name "waria-tan")
-      ('max-age 30)
-      ('min-skill 100)
-      ('max-neglect nil))
-     ('gfx
+     (loud
+      (data
+      (name "waria-tan")
+      (max-age 30)
+      (min-skill 100)
+      (max-neglect nil))
+     (gfx
       "(≧∇≦)" ;; forward
       "(≧∇≦ )" ;; left-facing
       "( ≧∇≦)" ;; right-facing
       "(~ ≧∇≦)~" ;; right-moving
       "~(≧∇≦ ~)"))));; left-moving
     
-   ('chaotic
-    ('smart
+   (chaotic
+    (smart
      
-     ('normie
-      ('data
-      ('name "kabuto-chan")
-      ('max-age 20)
-      ('min-skill 100))
-     ('gfx
+     (normie
+      (data
+      (name "kabuto-chan")
+      (max-age 20)
+      (min-skill 100))
+     (gfx
       "(▼皿▼)" ;; forward
       "(▼皿▼｡ )" ;; left-facing
       "( ｡▼皿▼)" ;; right-facing
       "(- ｡▼皿▼)-" ;; right-moving
       "-(▼皿▼｡ -)"));; left-moving
 
-     ('active
-      ('data
-      ('name "hashiru-chan")
-      ('max-age 15)
-      ('min-skill 50))
-     ('gfx
+     (active
+      (data
+      (name "hashiru-chan")
+      (max-age 15)
+      (min-skill 50))
+     (gfx
       "(ʘ∀ʘ)" ;; forward
       "(๑ʘ∀ʘ )" ;; left-facing
       "( ๑ʘ∀ʘ)" ;; right-facing
       "ε=┌(๑ʘ∀ʘ)┘" ;; right-moving
       "┗(ʘ∀ʘ๑)┐┘=3"));; left-moving
     
-     ('funny
-      ('data
-      ('name "fukou-chan")
-      ('max-age 5)
-      ('min-skill 12))
-     ('gfx
+     (funny
+      (data
+      (name "fukou-chan")
+      (max-age 5)
+      (min-skill 12))
+     (gfx
       "(´□｀)" ;; forward
       "(´□｀ )" ;; left-facing
       "( ´□｀)" ;; right-facing
       "(┘´□｀)┘" ;; right-moving
       "L(´□｀L)"));; left-moving
    
-     ('loud
-      ('data
-      ('name "noroi-chan")
-      ('max-age 20)
-      ('min-skill 100))
-     ('gfx
+     (loud
+      (data
+      (name "noroi-chan")
+      (max-age 20)
+      (min-skill 100))
+     (gfx
       "(｀▽´)" ;; forward
       "(｀▽´ )" ;; left-facing
       "( ｀▽´)" ;; right-facing
       "(o ｀▽´ )oΨ" ;; right-moving
       "Ψo(｀▽´ o)")));; left-moving
   
-    ('creative
-     ('normie
-      ('data
-      ('name "neko-chan")
-      ('max-age 30)
-      ('min-skill 100))
-     ('gfx
+    (creative
+     (normie
+      (data
+      (name "neko-chan")
+      (max-age 30)
+      (min-skill 100))
+     (gfx
       "(*Φ ω Φ*)" ;; forward
       "(*Φ ω Φ* )" ;; left-facing
       "( *Φ ω Φ*)" ;; right-facing
       "(∿*Φ ω Φ*)∿" ;; right-moving
       "∿(*Φ ω Φ*∿)"));; left-moving
     
-     ('active
-      ('data
-      ('name "osu-chan")
-      ('max-age 30)
-      ('min-skill 100))
-     ('gfx
+     (active
+      (data
+      (name "osu-chan")
+      (max-age 30)
+      (min-skill 100))
+     (gfx
       "(ì_í)" ;; forward
       "(ì_í )" ;; left-facing
       "( ì_í)" ;; right-facing
       "(ó ì_í)=ó" ;; right-moving
-      "ò=(ì_í ò)");; left-moving
+      "ò=(ì_í ò)"));; left-moving
      
-     ('funny
-      ('data
-      ('name "yotta-chan")
-      ('max-age 5)
-      ('min-skill 12))
-     ('gfx
+     (funny
+      (data
+      (name "yotta-chan")
+      (max-age 5)
+      (min-skill 12))
+     (gfx
       "(⊙_◎)" ;; forward
       "(⊙_◎ )" ;; left-facing
       "( ⊙_◎)" ;; right-facing
       "(> ⊙_◎)>" ;; right-moving
       "<(⊙_◎ <)"));; left-moving
 
-     ('loud
-      ('data
-      ('name "osoroshii-tan")
-      ('max-age 15)
-      ('min-skill 50))
-     ('gfx
+     (loud
+      (data
+      (name "osoroshii-tan")
+      (max-age 15)
+      (min-skill 50))
+     (gfx
       "(ﾟ Д ﾟ)" ;; forward
       "(ﾟ Д ﾟ )" ;; left-facing
       "( ﾟ Д ﾟ)" ;; right-facing
       "(> ﾟ Д ﾟ)>" ;; right-moving
       "<(ﾟ Д ﾟ <)")));; left-moving
 
-     ('social
+     (social
       
 
-      ('normie
-       ('data	
-	('name "kakkoii-chan")	
-	('max-age 30)	
-	('min-skill 100))       
-       ('gfx	
+      (normie
+       (data	
+	(name "kakkoii-chan")	
+	(max-age 30)	
+	(min-skill 100))       
+       (gfx	
 	"(⌐■_■¬)" ;; forward	
 	"(■_■¬ )" ;; left-facing	
 	"( ⌐■_■)" ;; right-facing	
@@ -453,12 +462,12 @@
 	"<(■_■¬<)"));; left-moving
       
 
-      ('active       
-       ('data	
-	('name "akuma-chan")	
-	('max-age 60)	
-	('min-skill 200))       
-       ('gfx	
+      (active       
+       (data	
+	(name "akuma-chan")	
+	(max-age 60)	
+	(min-skill 200))       
+       (gfx	
 	"(Φ‿Φ)" ;; forward	
 	"(Φ‿Φ )" ;; left-facing	
 	"( Φ‿Φ)" ;; right-facing	
@@ -467,25 +476,25 @@
       
 
 
-      ('funny       
-       ('data	
-	('name "dorobo-chan")	
-	('max-age 30)	
-	('min-skill 100)	
-	('max-neglect 100))       
-       ('gfx	
+      (funny       
+       (data	
+	(name "dorobo-chan")	
+	(max-age 30)	
+	(min-skill 100)	
+	(max-neglect 100))       
+       (gfx	
 	"('ڡ')" ;; forward	
 	"('ڡ' )" ;; left-facing	
 	"( 'ڡ')" ;; right-facing	
 	"(ง 'ڡ')ง" ;; right-moving	
 	"ლ('ڡ'ლ)"));; left-moving
       
-      ('loud       
-       ('data	
-	('name "sakebu-chan")	
-	('max-age 30)	
-	('min-skill 100))       
-       ('gfx	
+      (loud       
+       (data	
+	(name "sakebu-chan")	
+	(max-age 30)	
+	(min-skill 100))       
+       (gfx	
 	"＼(´◓ Д ◔)／" ;; forward	
 	"(´◓ Д ◔ )" ;; left-facing	
 	"( ´◔ Д ◓)" ;; right-facing	
@@ -791,7 +800,7 @@ Write the comments for the keypressing function here.
 	   ((> *hunger* 80)(setf *pet-appearance* owo-gfx))
 	   ((> *hunger* 50)(setf *pet-appearance* uwu-gfx))
 	   ((> *hunger* 40)(setf *pet-appearance* shocked-gfx))
-	   ((> *hunger* 20)(setf *pet-appearance* run-away-gfx)))))
+	   ((> *hunger* 20)(setf *pet-appearance* run-away-gfx))))))
   
 (defun increase-hunger ()
   (setf *hunger* (+ *hunger* 5))
