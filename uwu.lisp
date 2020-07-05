@@ -27,15 +27,14 @@
 ;;; o O °ﾟº Ó Õ Ø ô Ơ ơ Өө₀.
 
 (defparameter *babby-data*
-  (list
-   ('lawful
+  '((lawful
      "~:0" ;; forward
      "o:~" ;; left-facing
      "~:o" ;; right-facing
      "~:v" ;; right-moving
      "c:~" ;; left-moving
      )
-   ('chaotic
+   (chaotic
      "( .◎. )" ;; forward
      "(｡◎｡  )" ;; left-facing
      "(  ｡◎｡)" ;; right-facing
@@ -45,26 +44,25 @@
 
 
 (defparameter *child-data*
-  (list
-   ('normie
+  '((normie
      "(✿^‿^✿)"
      "(^‿^✿ )"
      "( ✿^‿^)"
      "(>✿^‿^)>"
      "<(^‿^✿<)")
-   ('active
+   (active
      "( o v o )"
      "(o v o )"
      "( o v o)"
      "( ┘o v o)┘"
      "┌(o v o┌ )")
-   ('funny
+   (funny
      "( 。v ° )"
      "(。v ° )☆"
      "☆( 。v °)"
      "☆( >。v °)>"
      "<(。v °< )☆")
-   ('loud
+   (loud
      "(＾▽＾)"
      "(＾▽＾ )"
      "( ＾▽＾)"
@@ -72,25 +70,24 @@
      "<(＾▽＾<)")))
 
 (defparameter *teen-data*
-  (list
-   ('lawful
+  '((lawful
 
-    ('normie
-     ('data
-      ('name "uwu-tan")
-      ('neglect-max 0))
-     ('gfx
+    (normie
+     (data
+      (name "uwu-tan")
+      (neglect-max 0))
+     (gfx
       "(u w u)" ;; forward      
       "(u w u )" ;; left-facing      
       "( u w u)" ;; right-facing      
       "(> u w u)>" ;; right-moving      
       "<( u w u <)")) ;; left-moving
      
-    ('active
-     ('data
-      ('name "owo-tan")
-      ('neglect-max 3))
-     ('gfx
+    (active
+     (data
+      (name "owo-tan")
+      (neglect-max 3))
+     (gfx
       "(o w o)" ;; forward      
       "(o w o )" ;; left-facing      
       "( o w o)" ;; right-facing      
@@ -98,22 +95,22 @@
       "<( o w o <)")) ;; left-moving
     
      
-    ('funny
-     ('data
-      ('name "kirei-tan")
-      ('neglect-max 0))
-     ('gfx
+    (funny
+     (data
+      (name "kirei-tan")
+      (neglect-max 0))
+     (gfx
       "(•˘v˘•)" ;; forward      
       "(•˘v˘n )" ;; left-facing      
       "( ˘v˘•)" ;; right-facing      
       "(n˘v˘•)¬" ;; right-moving      
       "~(•˘v˘n)")) ;; left-moving
     
-    ('loud
-     ('data
-      ('name "kagayaku-tan")
-      ('neglect-max 2))
-     ('gfx
+    (loud
+     (data
+      (name "kagayaku-tan")
+      (neglect-max 2))
+     (gfx
       
       "( *°▽°* )" ;; forward
       "(*°▽°* )" ;; left-facing      
@@ -121,46 +118,46 @@
       "(>*°▽°*)>" ;; right-moving      
       "<(*°▽°*<)")) ;; left-moving
     
-    ('chaotic
+    (chaotic
      
-     ('normie
-      ('data
-       ('name "henna-tan")       
-       ('neglect-max 1))      
-      ('gfx       
+     (normie
+      (data
+       (name "henna-tan")       
+       (neglect-max 1))      
+      (gfx       
        "(>.<)" ;; forward       
        "(<.<)" ;; left-facing       
        "(>.>)" ;; right-facing       
        "(>.>)//" ;; right-moving       
        "\\(<.<)")) ;; left-moving     
 
-     ('active
-      ('data
-       ('name "hadena-tan")       
-       ('neglect-max 3))      
-      ('gfx       
+     (active
+      (data
+       (name "hadena-tan")       
+       (neglect-max 3))      
+      (gfx       
        " (•̀_•́)" ;; forward       
        " (•̀_•́ )" ;; left-facing       
        " ( •̀_•́)" ;; right-facing       
        " (ง •̀_•́)ง" ;; right-moving       
        " ლ(•̀_•́ლ)")) ;; left-moving     
      
-     ('funny
-      ('data
-       ('name "derp-tan")       
-       ('neglect-max 2))      
-      ('gfx
+     (funny
+      (data
+       (name "derp-tan")       
+       (neglect-max 2))      
+      (gfx
        " ¯\(°_o)/¯" ;; forward       
        "(°_o )" ;; left-facing       
        "( o_°)" ;; right-facing       
        " (/¯o_°)/¯" ;; right-moving       
        " ¯\(°_o¯\)")) ;; left-moving     
      
-     ('loud
-      ('data
-       ('name "gekido-tan")       
-       ('neglect-max 3))      
-      ('gfx       
+     (loud
+      (data
+       (name "gekido-tan")       
+       (neglect-max 3))      
+      (gfx       
        "(°□°)" ;; forward       
        "(°□° )" ;; left-facing       
        "( °□°)" ;; right-facing       
