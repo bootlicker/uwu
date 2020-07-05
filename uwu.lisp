@@ -178,7 +178,7 @@
 |#
 
 (defparameter *adult-data*
-  '(lawful
+  '((lawful
     
     (smart     
            
@@ -235,7 +235,7 @@
       "(▼∀▼ )" ;; left-facing      
       "( ▼∀▼)" ;; right-facing
       "( >▼∀▼)>" ;; right-moving
-      "<(▼∀▼< )"));; left-moving
+      "<(▼∀▼< )")));; left-moving
      
     (creative
      (normie
@@ -346,7 +346,7 @@
       "(~ ≧∇≦)~" ;; right-moving
       "~(≧∇≦ ~)"))));; left-moving
     
-   (chaotic
+   chaotic
     (smart
      
      (normie
@@ -499,7 +499,7 @@
 	"(´◓ Д ◔ )" ;; left-facing	
 	"( ´◔ Д ◓)" ;; right-facing	
 	"(／ ´◔ Д ◓)／" ;; right-moving	
-	"＼(´◓ Д ◔ ＼)")))))) ;; left-moving
+	"＼(´◓ Д ◔ ＼)"))))) ;; left-moving
  
    #|
 					
