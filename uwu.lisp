@@ -169,18 +169,27 @@
   
 #|
 
-(care-alignment
- (skill-alignment
-  (data
-   (data-fields))
-  (gfx "gfx-fields"))
-  
+((lawful                     <- CAR will select only 'lawful' fields
+  (skill-alignment
+   (species
+    (data
+     (data-field 1)
+     (data field ...))
+    (gfx "gfx-fields"))))
+
+ (chaotic                  <- CDR will select only 'chaotic' fields
+  (skill alignment
+   (species
+    (data
+     (data-field 1)
+     (data-field ...))
+    (gfx "field")))))
 |#
 
 (defparameter *adult-data*
-  '((lawful
+  '((lawful   ;; <- CAR selects lawful fields
     
-    (smart     
+    (smart     ;; <- CADAR selects lawful smart fields
            
      (normie      
       (data       
@@ -346,7 +355,7 @@
       "(~ ≧∇≦)~" ;; right-moving
       "~(≧∇≦ ~)"))));; left-moving
     
-   chaotic
+   (chaotic
     (smart
      
      (normie
@@ -499,7 +508,7 @@
 	"(´◓ Д ◔ )" ;; left-facing	
 	"( ´◔ Д ◓)" ;; right-facing	
 	"(／ ´◔ Д ◓)／" ;; right-moving	
-	"＼(´◓ Д ◔ ＼)"))))) ;; left-moving
+	"＼(´◓ Д ◔ ＼)")))))) ;; left-moving
  
    #|
 					
@@ -864,3 +873,4 @@ Write the comments for the keypressing function here.
 ;;; menu items and corresponding key input here
     
   ))
+
