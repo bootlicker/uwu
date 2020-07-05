@@ -345,8 +345,8 @@
      (loud
       (data
       (name "waria-tan")
-      (max-age 30)
-      (min-skill 100)
+      (max-age 20)
+      (min-skill 50)
       (max-neglect nil))
      (gfx
       "(≧∇≦)" ;; forward

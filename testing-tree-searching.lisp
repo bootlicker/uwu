@@ -23,9 +23,14 @@
 (defun possible-evolutions-lawful (highest-skill)
   (setf n 0)
   (setf species (list 'normie 'active 'funny 'loud))
+  (setf table-position nil)
   (setf table-skill-value nil)
-
-  (loop     
+  (loop
+     
+     (setf table-position
+	   (append table-position
+		   (cons (nth n species) nil)))				  
+     
      (setf table-skill-value
 	   (append table-skill-value	   
 		   (cdr (assoc 'min-skill				 
@@ -33,9 +38,9 @@
 					     (cdr (assoc (nth n species)
 							 (cdr (assoc highest-skill
 								     (cdr (assoc 'lawful *adult-data*))))))))))))
-     (setf 
+     
      (incf n)
-     (when (> n 3) (return table-skill-value))))
+     (when (> n 3) (return (cons table-skill-value (list table-position))))))
 	
 	
 
