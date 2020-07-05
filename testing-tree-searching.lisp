@@ -10,20 +10,33 @@
   (setf sort-list (list smart creative social))
     (sort sort-list #'>)
     (print sort-list)
-    (cond ((equal (car sort-list) *skill-smart*) (setf skill-search 'smart))
+    (cond ((equal (car sort-list) *skill-smart*) (setf *skill-search* 'smart))
 	   	   	   
-	   ((equal (car sort-list) *skill-creative*)(setf skill-search 'creative))
+	   ((equal (car sort-list) *skill-creative*)(setf *skill-search* 'creative))
 	    	   
-	   ((equal (car sort-list) *skill-social*)(setf skill-search 'social))))
+	   ((equal (car sort-list) *skill-social*)(setf *skill-search* 'social))))
 
 (setf care-search 'lawful)
 
+(list 'normie 'active 'funny 'loud)
+
 (defun possible-evolutions-lawful (highest-skill)
-  (setf table-skill-value
-	(assoc 'min-skill
-	       (cdr (assoc 'data			   
-		     (cdr (assoc 'normie				 
-				 (cdr (assoc 'smart
-					     (cdr (assoc 'lawful *adult-data*))))))))))
+  (setf n 0)
+  (setf species (list 'normie 'active 'funny 'loud))
+  (setf table-skill-value nil)
+
+  (loop     
+     (setf table-skill-value
+	   (append table-skill-value	   
+		   (cdr (assoc 'min-skill				 
+				 (cdr (assoc 'data
+					     (cdr (assoc (nth n species)
+							 (cdr (assoc highest-skill
+								     (cdr (assoc 'lawful *adult-data*))))))))))))
+     (setf 
+     (incf n)
+     (when (> n 3) (return table-skill-value))))
+	
+	
 
   (eual 

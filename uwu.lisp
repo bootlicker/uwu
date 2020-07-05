@@ -545,7 +545,7 @@
 ;;; When the happines state reaches zero, the programme will trigger
 ;;; an alert (*attention-required*) to the user.
 
-   (defparameter *happiness* 5)
+(defparameter *happiness* 5)
 (defparameter *happiness-secret* 2)
 
 ;;; This variable is the amount of hunger that the pet is
