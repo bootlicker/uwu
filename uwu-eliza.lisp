@@ -442,3 +442,14 @@
                  (return 
                   (subs (random-elt (rest r))))))))))
     
+#|
+ next step:
+
+> stop the repetition of responses
+
+ - collect number of times particular response given
+ - pick the response least used
+
+> allow user to input new keys and responses
+
+|#
