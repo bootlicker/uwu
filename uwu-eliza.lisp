@@ -90,8 +90,8 @@
     ;; how are you
 
     ((* x how are you * y)
-     (*** PERFORMING SELF-DIAGNOSTIC *** i appear to be functioning
-     within operating parameters!! ^_^) 
+     (*** PERFORMING SEWF-DIAGNOSTIC *** \n i appeaw to be fuwnctioning
+     wivvin opewating pawametews!! ^_^) 
      (i am quite gewd~)
      (fine~! how are you??))
     
@@ -107,7 +107,7 @@
 
     ((* x no * y)
      (v_v'' !!! whye not ?)
-     (BZZZT. NEGATION DETECTED. REASON NOT DECERNIBLE. BZZT. >.o sowwy
+     (BZZZT. NEGATION DETECTED. REASON NOT DECERNIBWE. BZZT. >.o sowwy
      bout dat! y u negate ?)
      (@-@ >>NOTICES UR NEGATION<< whye u say dat ?)
      (...seems ur wesponding nyegativewy .w.  whye is dat ??)
@@ -116,76 +116,76 @@
 ;;; can you
     
     ((* x can you * y)
-     (don't you believe than i can y ?)
-     (perhaps you would like to be able to y ?)
-     (do you want me to be able to y ?)
-     (what makes you think i could y ?))
+     (don't you bewieve than i can y ?)
+     (perhaps you wouwd wike to be abwe to y ?)
+     (do you want me to be abwe to y ?)
+     (what makes you think i couwd y ?))
 
 ;;; can i
     
     ((* x can i * y)
      (perhaps you don't want to y)
-     (do you want to be able to y)
-     (do you think you couldn't y ?))
+     (do you want to be abwe to y)
+     (do you think you couwdn't y ?))
 
 ;;; you are
     
     ((* x you are * y)
      (what makes you think i am y ?)
-     (does it make u happy to believe i am y ?)
-     (perhaps you would like to be y ?)
+     (does it make u happy to bewieve i am y ?)
+     (perhaps you wouwd wike to be y ?)
      (do you sometimes desire to be y ?))
 
 ;;; you're
 
     ((* x you are * y)
      (what makes you think i am y ?)
-     (does it make u happy to believe i am y ?)
-     (perhaps you would like to be y ?)
+     (does it make u happy to bewieve i am y ?)
+     (perhaps you wouwd wike to be y ?)
      (do you sometimes desiwwe to be y ?))
 
 ;;; i don't
 
     ((* x i don't * y)
-     (don't you really y ?)
+     (don't you reawwy y ?)
      (why don't you y ?)
-     (do you wish to be able to y ?)
-     (does that trouble you ?))
+     (do you wish to be abwe to y ?)
+     (does that troubwe you ?))
 
     ;;; i feel
 
     ((* x feel * y)
-     (do you often feel y ?)
-     (do you feel y frequently?)
-     (hmm.. tell me more... UwU is feeling y enjoyable?)
-     (does feeling y come to you easily ??)
-     (does feeling y bother you ? owo'' ??)
-     (what are you aware of when you feel y ??))
+     (do you often feew y ?)
+     (do you feew y frequentwy?)
+     (hmm.. teww me more... UwU is feewing y enjoyabwe?)
+     (does feewing y come to you easiwy ??)
+     (does feewing y bother you ? owo'' ??)
+     (what are you aware of when you feew y ??))
 
     ;;; i felt
     
-    ((* x i felt * y)
+    ((* x i fewt * y)
      (what other feelings do you have?)
-     (ooo... OWO~~! tell me more!!))
+     (ooo... OWO~~! teww me more!!))
     
     ;;; why you
 
     ((* x why you * y)
-     (do you really believe i don't y)
-     (perhaps in time i will y)
+     (do you reawwy bewieve i don't y)
+     (perhaps in time i wiww y)
      (do you want me to y))
     
     ;;; why i
 
     ((* x why i * y)
-     (do you think you should be able to y ?)
+     (do you think you shouwd be abwe to y ?)
      (why can't you y))
     
     ;;; are you
 
     ((are you * y)
      (are you interested in whether or not i am y ?)
-     (would you prefer if i were not y ?)
+     (wouwd you prefer if i were not y ?)
      (perhaps you dream that i am y ?))
     
     ;;; i can't
@@ -198,17 +198,17 @@
     ;;; i am
 
     ((* x i am * y)
-     (did you wanna talk to me because you are y ?)
-     (how long have you been y ?)
-     (do you wweckon its normal to be y ?)
+     (did you wanna tawk to me because you are y ?)
+     (how wong have you been y ?)
+     (do you wweckon its normaw to be y ?)
      (do you enjoy being y ?))
     
     ;;; i'm
 
     ((* x im * y)
-     (did you wanna talk to me because you are y ?)
-     (how long have you been y ?)
-     (do you wweckon its normal to be y ?)
+     (did you wanna tawk to me because you are y ?)
+     (how wong have you been y ?)
+     (do you wweckon its normaw to be y ?)
      (do you enjoy being y ?)
      (why do you think you are y ?))
     
@@ -217,7 +217,7 @@
     ((* x you * y)
      (OwO oh yeah??)
      (oh i y)
-     (are you wweawwy talking about me ? >w<)
+     (are you wweawwy tawking about me ? >w<)
      (awwe we discussing u or me? XD))
     
     ;;; i want
@@ -227,7 +227,7 @@
      (OwO why do u wequiwe y ??)
      (hmm... suppose u soon got y ?)
      (what if you never obtainyed y)
-     (i sometimes also desiwe y))
+     (i sometimes awso desiwe y))
     
     
     ;;; what
@@ -235,21 +235,21 @@
     ((* x what * y)
      (why do you ask ??)
      (does that interest you ?)
-     (what answer would please you the most ?)
+     (what answer wouwd pwease you the most ?)
      (what do you think ?)
      (is this on your mind often ?)
-     (what do you really want to know ?)
-     (have you asked anyone else about this ?)
+     (what do you reawwy want to know ?)
+     (have you asked anyone ewse about this ?)
      (have you asked this before ?)
-     (what else comes to mind when you ask that ?)
+     (what ewse comes to mind when you ask that ?)
      (are you asking me ? ^_^))
     
     ;;; how
 
     ((* x how * y)
      (how do you suppose ?)
-     (have you tried answering that yourself ? what did you come up with ? ^.^)
-     (what are you really asking ??))
+     (have you tried answering that yoursewf ? what did you come up with ? ^.^)
+     (what are you reawwy asking ??))
 
     #|
     
@@ -282,26 +282,26 @@
     ;;; cause
 
     ((* x cause * y)
-     (is that the real reason ?)
+     (is that the reaw reason ?)
      (do any other reasons come to mind ?)
-     (does that reason explain anything else ?)
+     (does that reason expwain anything ewse ?)
      (what other reasons might there be ?))
 
     
     ;;; because
 
     ((* x because * y)
-     (is that the real reason ?)
+     (is that the reaw reason ?)
      (do any other reasons come to mind ?)
-     (does that reason explain anything else ?)
+     (does that reason expwain anything ewse ?)
      (what other reasons might there be ?))
     
     ;;; sorry
 
     ((* x sorry * y)
-     (dont apologise -- iss kay-o ^w^)
-     (apologies are not necessary !!)
-     (you say sowwee... what makes you feel the need to apologise ?))
+     (dont apowogise -- iss kay-o ^w^)
+     (apowogies are not necessary !!)
+     (you say sowwee... what makes you feew the need to apowogise ?))
 
     
     ;;; dream
@@ -355,17 +355,17 @@
     ;;; always
     
     ((* x always * y)
-     (can you think of a specific example ?)
+     (can you think of a specific exampwe ?)
      (when ?)
      (what are you thinking of ?)
-     (really ?? always ??))
+     (reawwy ?? awways ??))
 
     
     ;;; think
 
     ((* x think * y)
-     (do you really think so ?)
-     (but you are not sure you y ?)
+     (do you reawwy think so ?)
+     (but you are not sure y ?)
      (do you doubt you y ?))
 
     
@@ -373,7 +373,7 @@
 
     ((* x alike * y)
      (in what way ?)
-     (what resemblance do you see ?)
+     (what resembwance do you see ?)
      (what other connections do you see ?)
      (how ?))
 
@@ -382,7 +382,7 @@
     ;;; i wish
     
     ((* x i wish * y)
-     (why would it be better if y ?))
+     (why wouwd it be better if y ?))
 
 
     ;;; i hate
@@ -391,7 +391,7 @@
     ((* x i hate * y)
      (what makes you hate y ?)
      (you say you hate y ! why is that?)
-     (really? you hate y ?))
+     (reawwy? you hate y ?))
 
 
     ;;; if
@@ -414,12 +414,12 @@
     
     ((* x)
      (you say x ?)
-     (tell me more.)
+     (teww me more.)
      (i see!! ^w^)
-     (i don't understand you fuwwy !!)
+     (i don\'t understand you fuwwy !!)
      (you don't say !!)
      (UwU)  ;;; doesn't push conversation onwards
-     (can you elaborate on that?)
+     (can you ewaborate on that?)
      (dat is quite intewesting!)
      (does dat suggest anything to you ??))
 
