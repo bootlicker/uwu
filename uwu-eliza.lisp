@@ -101,7 +101,7 @@
      (youw seem positive ^.^)
      (are youw suwe ?)
      (i see !!)
-     (i undewstand uwu))
+     (i undewstand uwu)) ;;; doesn't push conversation forward
 
     ;;; no
 
@@ -327,7 +327,7 @@
      (howdy~~ >w<)
      (wewwcome!!! XD)
      (hi ya~~)
-     (good day hooman!)
+     (gewd day hooman!)
      (^.^ what's up ?)
      (hey~~ o.o)
      (awwo!! wass happenying ?))
@@ -436,7 +436,7 @@
           (input (read-from-string (concatenate 'string "(" line ")"))))
      (when (string= line "bye") (return))
      (setq *bindings* nil)
-     (format t "~{~(~a ~)~}~%"
+     (format t "~{~(~A ~)~}~%"
              (dolist (r *rules*)
                (when (match (first r) input)
                  (return 
