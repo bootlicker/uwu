@@ -527,6 +527,14 @@
    (⁎ ⁍̴̛ᴗ⁍̴̛ ⁎)				; ; ;
    |#
 
+;;; *********************************
+;;; ** DEFINITION OF THE CONSTANTS **
+;;; *********************************
+
+(defconstant +five-minutes+ (* 5 60))
+(defconstant +fifteen-minutes+ (* 15 60))
+(defconstant +one-hour+ (* 60 60))
+(defconstant +one-day+ (* 24 +one-hour+))
 
 ;;; *********************************
 ;;; ** DEFINITION OF THE VARIABLES **
@@ -662,7 +670,7 @@
 (defparameter *pet-appearance* *egg-gfx*)
 
 ;;; ******************************************************************************
-;;; *                                   GAME LOGICK                              *
+;;; *                                   GAME CODE                                *
 ;;; ******************************************************************************
 
 ;;; This is a simple utility function that enables me to clear the
@@ -675,27 +683,39 @@
          nil)))
 
 ;;; <><><><><><><><><><><>
-;;;       MAIN LOOP
+;;;       MAIN LOOPS
 ;;; <><><><><><><><><><><>
 
-;;; The main game loop!
-;;; Here it is below:
-
-(defun main-loop ()
-
-  (uwu-init)
-  
+(defun egg-loop ()
   (loop
-     (read-keys)
-     (comprehend-input *keypress*)
-     (process-state)))
+     
+  
+  (croatoan:with-screen (scr :input-echoing nil
+			     :input-buffering nil
+			     :input-blocking 100
+			     :cursor-visible nil
+			     :enable-colors nil
+			     )
+    (setf *rng-move* (random 5))
+    (cond ((and (= 3 *rng-move*) (> *movement* 0)) (decf *movement*))
+	  ((and (= 4 *rng-move*) (< *movement* 9)) (incf *movement*)))
+    (format t
+	    (apply #'concatenate 'string
+		   (list
+		    (subseq "         " *movement*)
+		    (nth *rng-move* *egg-data*))) #\return)))
 
-;;; As you can see above, the main loop initialises the game once, and
-;;; then zips through a tight loop, performing the following: (1)
-;;; Reading user input from the keyboard; then (2) Processing the
-;;; keypress from the user into a command to feed into (3) the pet's
-;;; internal happiness, nutritional, and recreational state.
+(defun babby-loop ()
+  )
 
+(defun child-loop ()
+  )
+
+(defun teen-loop ()
+  )
+
+(defun adult-loop ()
+  )
 
 #|
 
@@ -707,11 +727,15 @@
 
 (defun uwu-init ()
 
+  (clear-emacs-buffer)
+  (setf *pet-appearance* *egg-data*)
+
 ;;; This, below, is a simple little function that (i) clears the
 ;;; screen, and then (ii) draws the screen. Here it is executed for
 ;;; the first time, under the init function.
   
   (defun idle-state ()
+
     (clear-emacs-buffer)
     (draw-screen-idle *hunger* *entertainment*))
 
@@ -847,27 +871,5 @@ Write the comments for the keypressing function here.
     (print *movement*)
     ))
 
-;;; This function below will stop the drawing of the animations of the
-;;; pet in its idle state, and instead draw the game's main menu,
-;;; where you will have the ability to perform more complex
-;;; interactions with the pet.
 
-;;; The timers that change the pet's internal state will continue
-;;; running in the background, so the game is not paused.
-
-(defun draw-screen-menu ()
-
-  (unschedule-timer *idle-state*)
-  (clear-emacs-buffer)
-
-  (croatoan:with-screen (scr :input-echoing nil
-			     :input-buffering nil
-			     :input-blocking 100
-			     :cursor-visible nil
-			     :enable-colors nil
-			     )
-
-;;; menu items and corresponding key input here
-    
-  ))
 

@@ -87,6 +87,32 @@
 (defparameter *rules*
   '(
 
+    ;; how are you
+
+    ((* x how are you * y)
+     (*** PERFORMING SELF-DIAGNOSTIC *** i appear to be functioning
+     within operating parameters!! ^_^) 
+     (i am quite gewd~)
+     (fine~! how are you??))
+    
+    ;;; yes
+    
+    ((* x yes * y)
+     (youw seem positive ^.^)
+     (are youw suwe ?)
+     (i see !!)
+     (i undewstand uwu))
+
+    ;;; no
+
+    ((* x no * y)
+     (v_v'' !!! whye not ?)
+     (BZZZT. NEGATION DETECTED. REASON NOT DECERNIBLE. BZZT. >.o sowwy
+     bout dat! y u negate ?)
+     (@-@ >>NOTICES UR NEGATION<< whye u say dat ?)
+     (...seems ur wesponding nyegativewy .w.  whye is dat ??)
+     (whye not ? u not happy ._. ?))
+
 ;;; can you
     
     ((* x can you * y)
@@ -128,7 +154,7 @@
 
     ;;; i feel
 
-    ((* x i feel * y)
+    ((* x feel * y)
      (do you often feel y ?)
      (do you feel y frequently?)
      (hmm.. tell me more... UwU is feeling y enjoyable?)
@@ -141,7 +167,6 @@
     ((* x i felt * y)
      (what other feelings do you have?)
      (ooo... OWO~~! tell me more!!))
-    
     
     ;;; why you
 
@@ -158,7 +183,7 @@
     
     ;;; are you
 
-    ((* x are you * y)
+    ((are you * y)
      (are you interested in whether or not i am y ?)
      (would you prefer if i were not y ?)
      (perhaps you dream that i am y ?))
@@ -186,7 +211,7 @@
      (do you wweckon its normal to be y ?)
      (do you enjoy being y ?)
      (why do you think you are y ?))
-        
+    
     ;;; you
 
     ((* x you * y)
@@ -226,33 +251,33 @@
      (have you tried answering that yourself ? what did you come up with ? ^.^)
      (what are you really asking ??))
 
-#|
+    #|
     
     ;;; who
 
     ((* x who * y)
-     ())
+    ())
 
     
     ;;; where
 
     ((* x where * y)
-     ())
+    ())
 
     
     ;;; when
 
     ((* x when * y)
-     ())
+    ())
 
     
     ;;; why
 
 
     ((* x why * y)
-     ())
+    ())
 
-|#
+    |#
 
     ;;; cause
 
@@ -286,7 +311,7 @@
      (do you often dream ?)
      (what appears in your dreams ?)
      (are you made upset by your dwweams? ?))
-   
+    
     ;;; dreams
 
     ((* x dreams * y)
@@ -319,14 +344,6 @@
      (you are not sure)
      (dont you know ???))
     
-    ;;; no
-
-    ((* x no * y)
-     (v_v'' !!! whye not ?)
-     (r u sure ?)
-     (@-@ >>NOTICES UR NEGATION<< whye u say dat ?)
-     (...seems ur wesponding nyegativewy .w.  whye is dat ??)
-     (whye not ? u not happy ._. ?))
     
     ;;; your
 
@@ -361,13 +378,6 @@
      (how ?))
 
     
-    ;;; yes
-    
-    ((* x yes * y)
-     (you seem positive ^.^)
-     (are you sure ?)
-     (i see !!)
-     (i understand))
 
     ;;; i wish
     
@@ -381,7 +391,7 @@
     ((* x i hate * y)
      (what makes you hate y ?)
      (you say you hate y ! why is that?)
-     (really? you hate y ?)
+     (really? you hate y ?))
 
 
     ;;; if
@@ -397,12 +407,6 @@
     ((* x i was * y)
      (why do you say x you were y ?))
 
-    ;; how are you
-
-    ((how are you * y)
-     (*** PERFORMING SELF-DIAGNOSTIC *** i appear to be functioning within operating parameters!! ^_^)
-     (i am quite gewd~)
-     (fine~! how are you??))
 
 
     ;;; misc
@@ -414,12 +418,12 @@
      (i see!! ^w^)
      (i don't understand you fuwwy !!)
      (you don't say !!)
-     (UwU)
+     (UwU)  ;;; doesn't push conversation onwards
      (can you elaborate on that?)
-     (that is quite interesting!)
-     (does that suggest anything to you ??)
-     
-     )
+     (dat is quite intewesting!)
+     (does dat suggest anything to you ??))
+
+
     ))
 
 (defun random-elt (list)
